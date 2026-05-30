@@ -1,0 +1,46 @@
+name: Daily AI Voice & Agent Digest
+
+on:
+  schedule:
+    # 每天 01:00 UTC = 台灣時間 09:00
+    - cron: '0 1 * * *'
+  workflow_dispatch:  # 允許手動觸發
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run digest
+        working-directory: scripts
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+          GITHUB_PAGES_URL: ${{ secrets.GITHUB_PAGES_URL }}
+        run: python main.py
+
+      - name: Commit and push generated site
+        run: |
+          git config user.name "AI Digest Bot"
+          git config user.email "digest-bot@users.noreply.github.com"
+          git add docs/
+          git diff --staged --quiet || (
+            git commit -m "digest: $(date -u +%Y-%m-%d)" &&
+            git push
+          )
