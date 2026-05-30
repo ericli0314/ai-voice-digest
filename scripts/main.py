@@ -10,7 +10,7 @@ import emailer
 
 def main():
     date_str = date.today().strftime("%Y-%m-%d")
-    pages_url = os.environ.get("GITHUB_PAGES_URL", "").rstrip("/")
+    pages_url = os.environ.get("PAGES_URL", "").rstrip("/")
     if not pages_url:
         print("[main] WARNING: GITHUB_PAGES_URL not set")
         pages_url = "https://example.github.io/ai-voice-digest"
