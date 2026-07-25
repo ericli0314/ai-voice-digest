@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI語音 &amp; Agent 趨勢 | 2026-07-25</title>
+    <style>
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+               background: #f0f2f5; color: #333; line-height: 1.6; }
+        a { color: inherit; }
+        .header { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+                  color: white; padding: 2.5rem 1.5rem; text-align: center; }
+        .header h1 { font-size: 1.7rem; margin-bottom: 0.4rem; }
+        .header .sub { opacity: 0.65; font-size: 0.9rem; }
+        .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+    
+        
+        /* toolbar */
+        .toolbar { display:flex; align-items:center; gap:0.6rem;
+                   margin-bottom:1rem; flex-wrap:wrap; }
+        .filter-btn { border:1.5px solid #d1d5db; background:white; border-radius:20px;
+                      padding:5px 14px; font-size:0.82rem; cursor:pointer;
+                      transition:all 0.15s; color:#555; }
+        .filter-btn.active { background:#6366f1; border-color:#6366f1;
+                             color:white; font-weight:600; }
+        #sync-status { margin-left:auto; font-size:0.78rem; font-weight:500;
+                       transition:color 0.3s; }
+        /* cards */
+        .card { background:white; border-radius:12px; padding:1.2rem;
+                margin-bottom:0.8rem; box-shadow:0 2px 8px rgba(0,0,0,0.06);
+                transition:transform 0.15s, box-shadow 0.15s, border-color 0.2s;
+                border-left:4px solid transparent; }
+        .card:hover { transform:translateY(-2px); box-shadow:0 4px 14px rgba(0,0,0,0.1); }
+        .card.is-fav { border-left-color:#f59e0b; }
+        .card-header { display:flex; align-items:flex-start; gap:0.5rem; }
+        .card-body { flex:1; min-width:0; }
+        .meta { font-size:0.72rem; color:#aaa; text-transform:uppercase;
+                letter-spacing:0.5px; margin-bottom:0.3rem; }
+        .card h3 { font-size:0.97rem; font-weight:600; margin-bottom:0.3rem; }
+        .card h3 a { text-decoration:none; color:#1e1b4b; }
+        .card h3 a:hover { color:#6366f1; text-decoration:underline; }
+        .ai-sum { font-size:0.87rem; color:#555; background:#f5f3ff;
+                  padding:0.7rem 0.9rem; border-radius:6px; margin:0.5rem 0; }
+        .pub { font-size:0.72rem; color:#bbb; margin-top:0.3rem; }
+        /* action buttons */
+        .card-actions { display:flex; flex-direction:column; gap:0.3rem;
+                        flex-shrink:0; }
+        .btn-star, .btn-note-toggle { border:none; background:transparent;
+                       cursor:pointer; font-size:1.1rem; padding:2px 4px;
+                       border-radius:6px; transition:transform 0.1s;
+                       line-height:1; }
+        .btn-star:hover, .btn-note-toggle:hover { transform:scale(1.2); }
+        .note-badge { font-size:0.6rem; background:#6366f1; color:white;
+                      border-radius:4px; padding:1px 4px; vertical-align:top;
+                      margin-left:2px; }
+        /* notes area */
+        .note-area { margin-top:0.8rem; display:none; }
+        .note-label { font-size:0.72rem; color:#6366f1; font-weight:600;
+                      margin-bottom:0.3rem; text-transform:uppercase;
+                      letter-spacing:0.5px; }
+        .note-text { width:100%; min-height:80px; border:1.5px solid #e0e0ff;
+                     border-radius:8px; padding:0.6rem 0.8rem; font-size:0.88rem;
+                     font-family:inherit; resize:vertical; color:#333;
+                     line-height:1.6; outline:none; }
+        .note-text:focus { border-color:#6366f1;
+                           box-shadow:0 0 0 3px rgba(99,102,241,0.12); }
+        /* digest box */
+        .digest-box { background:white; border-radius:12px; padding:1.5rem;
+                      margin-bottom:1.4rem; border-left:5px solid #6366f1;
+                      box-shadow:0 2px 10px rgba(0,0,0,0.07); }
+        .digest-box h2 { font-size:0.82rem; text-transform:uppercase;
+                         letter-spacing:1px; color:#6366f1; margin-bottom:0.8rem; }
+        .digest-box p { color:#444; font-size:0.95rem; line-height:1.9; }
+        .count { color:#888; font-size:0.85rem; margin-bottom:0.8rem; }
+        .back { display:inline-block; margin-top:1rem; color:#a5b4fc;
+                text-decoration:none; font-size:0.85rem; }
+        .back:hover { text-decoration:underline; }
+    
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎙️ AI語音 &amp; Agent 每日趨勢</h1>
+        <div class="sub">2026-07-25</div>
+        <a href="../index.html" class="back">← 返回總覽</a>
+    </div>
+    <div class="container">
+        <div class="digest-box">
+            <h2>📋 今日趨勢摘要</h2>
+            <p>今日摘要生成失敗，請直接查看文章列表。</p>
+        </div>
+
+        <div class="toolbar">
+            <button class="filter-btn active" data-filter="all"
+                    onclick="setFilter('all')">全部文章</button>
+            <button class="filter-btn" data-filter="fav"
+                    onclick="setFilter('fav')">⭐ 我的最愛<span id="fav-count"></span></button>
+            <span id="sync-status"></span>
+        </div>
+
+        <div class="count">今日共收錄 30 篇相關文章</div>
+        
+        <div class="card" data-id="0e701bf2ef">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxOWnhxV3A2RHlhTGpsRTJ4amJfUjRodWIxay0tRHh4MlZfYk5HVDlBMTJldXV2YWhXMXZKV0FKQ0J2SjRXa3VjZ0tsS2J2N1dOZmhDc1p3cTBFWExKUnVoVDZERG5OZ3NUU012Q3BiV0toSW5NZ3FpWmtlY2pHR3VZSUJYZHJFZ0dmUzNWcU1BTVNqS3dQRzhOQUw5UnppSlRPX0VJ?oc=5" target="_blank" rel="noopener noreferrer">Voice AI Turns the B2B Back Office Into a Conversation - PYMNTS.com</a>
+                    </h3>
+                    
+                    <div class="pub">Fri, 24 Jul 2026 16:15:51 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="4b4c471aa3">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxPTWlWVW0xbWhnY2l6dTBLUERFdjItT0IwRWtqR3I1WXpnRFROV1NJUzAxNEVFTFNpbllKTnoybGs5Vm9BdUdxaFctT2EwSVltUC1nMEFKTXlnS0EtamdQWGYyRGlrUnh3UHNWRFF0Yk5MeEtMMzZFZUR4ZEhlTTlVOGJ5a2VtNzZlb0hibGhtYm1LWG5yZVZKNzBnSGhaRzhw?oc=5" target="_blank" rel="noopener noreferrer">DevRev Launches Voice AI with Shared Organizational Memory Across Agents - Customer Think</a>
+                    </h3>
+                    
+                    <div class="pub">Fri, 24 Jul 2026 17:02:35 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="7ec7acc353">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE1DVXI2NXkzejZWS2piS0F6aTh4YWlHMVRCT3lkTWdsb2NjYkpnOFpSR0hlNWxBd2swaklLak5JanFpY3dSU3lyUnlyalMwbUVJQXE2MHVSZmQ2dw?oc=5" target="_blank" rel="noopener noreferrer">Introducing GPT-Live - OpenAI</a>
+                    </h3>
+                    
+                    <div class="pub">Wed, 08 Jul 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="8feee09731">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE1fZXlsQkhQTGpySlU3RWExdUpseDBEbU1qbnltTlBScG9JeHZlY3dHRlY3UWpwVjEtek1iMkRGN2szWnJHbHhEMHIyU3cyT2liaV81SllVUnFwNG5GSnl5cUtmbUY0ZG9qZUVzVnhHbDnSAXZBVV95cUxOejAtUUotVUEwT3ZWbXkxeUxEV05sbkVocHBRZGNmSWFKMXVtWExXVUY2MUhldXBrNVhQT0RFOG81bkMyMEtJdzY0czlGeFR3QzZZdjZKZnVnMDh5YXVleC03TFlqMWFWaUV3M1RzOWt6TW5JaEd3?oc=5" target="_blank" rel="noopener noreferrer">AI voice scams can clone your family’s voice - Fox News</a>
+                    </h3>
+                    
+                    <div class="pub">Tue, 09 Jun 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="4233b41fac">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxOaVZRcE1Cd3BwQUZYbHBXN290eDBQVmg4NUVWVTdDSTc2MW5sZ3pOcWVJcTZtTFpnWFNpcWhfcWNYcFhhTi1DajdVNDYzbGtfSWtBUFFaOXlrUU44bWx5OTFnYlM2ZXRyT3hYeXFSZk8wVkVyYU41QmpqWFJsNUtaVGxLWEktX2VmUnZYTkMteUhQcEVOQ0xNZzQwdG1kaUZxWXFDcFk2aHJZT2hWQmVycU81V1B2NHhjNG1PYmVPakVLZUxrc2o0dlp3?oc=5" target="_blank" rel="noopener noreferrer">These two founders left Goldman and Meta to build voice AI for markets everyone else overlooked - TechCrunch</a>
+                    </h3>
+                    
+                    <div class="pub">Wed, 03 Jun 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="a6630328a9">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTFA1Z29raHh3X3JFNGRJRTJQQTRmbk5mdHRMUndpeWp4VkJfRVlydzBUMmFENDF4bWVreU9WMC1CLVdBRzRIUUphUjhzWWREeEJEdHFwWg?oc=5" target="_blank" rel="noopener noreferrer">Introducing the Voice Agent Builder - x.ai</a>
+                    </h3>
+                    
+                    <div class="pub">Wed, 01 Jul 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="ee77881f4b">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHNnBCNDRNSUp0TzZaRHdjRWJOLU9HZklnTTU3ODhXbjE5RjB4dGh4SVZsTWxZWk1pY3lvMWxKUFRUbTZuemp2aVVNRkZlSTk2MDlYLW03S1ozUQ?oc=5" target="_blank" rel="noopener noreferrer">Wonka Netflix show faces backlash for AI-generated Gene Wilder voice - BBC</a>
+                    </h3>
+                    
+                    <div class="pub">Wed, 01 Jul 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="e810b1fc82">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxQX3Y0ckZzU3RQRFZJdmdibE5pU2QyeTQ0Y0FIZjlrZmNkdEozeEVnX0MwemlVYVJMZVpST3pTdlc0VmdGYVZOWEI5bkUycHE4aHhZZEd6eDZWclczRWZZREljemxCX2h0UDBmRzlJU1JGd096YjllbG1TYkpMOHRYV09KSXd3eTA2NW5qdDNIaF8yY3VKTEd2OTJjYlZfOVVBZlJaa2oxeHFMWXZidnNlLTZNc2JsbS1RRk9sTXd1THk?oc=5" target="_blank" rel="noopener noreferrer">AI voice calls and fixed incomes put older adults at risk for financial scams, researchers say - WWBT</a>
+                    </h3>
+                    
+                    <div class="pub">Fri, 24 Jul 2026 18:45:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="1f44a76fcf">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice Bot AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxPRndEWmkzWm5zS3AteGhJUUd4bmIweHhIZ242M25LWFBrcDdRZFNBMVpHdnVSbi11SXVVcnVseXJPOEk0TlVocTd0ZkZMT29Qa3NLU1hITXhhYVRtcUpuX0l4c2hQb0NEVHZFellZZ0lFWjV6ZnV3dmhyTXJ2b29zTmZGUTdTSmFuTUJmVmtsMTA2R2t2VmZYMGFCdWhLNE15ZXYwc0ZEOTQzZHZpenJDZy1BQTBvYndRa2ZmU1dGclFYNXhlaFhLM0RyLTFWejVXOC13UFdHOA?oc=5" target="_blank" rel="noopener noreferrer">John Ryan on AI Voice Bots in Collections: Compliance Risks, Legal Requirements, and Best Practices - Hinshaw & Culbertson LLP</a>
+                    </h3>
+                    
+                    <div class="pub">Wed, 10 Jun 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="08fc4c9572">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice Bot AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMifkFVX3lxTFB1NllMRWVDRzhqOXdoSGtHZG5jWWZyYXlwTkVQV0FPVk1xWnd1MFJlX0ZISWFORHN4T2tMMThseVRsSnUwek1rWVRCLWNETmJDMERjQnpWZWtfR3ZjTkw0UWVuRUJyeHpSckVEQWtTZVRMakNIRlBUNlhPMHBadw?oc=5" target="_blank" rel="noopener noreferrer">Finding Your Voice as a Writer in the Age of AI - Jane Friedman</a>
+                    </h3>
+                    
+                    <div class="pub">Wed, 24 Jun 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="803b686642">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice Bot AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxNQTJMclNwVXdzNkk2ZzBWZkZFRnU5RWdSTElVWU9hajg3enlEY0F3aFoyRDk3TmN5cDlEZ0VrU1ZWNy1OeDliRFhOTXJQNlZmM0NZSUhDdFFuZm03TkJHV19mamthUHFPeGJIQ3dhUG1heDAtWndRZkR3aFFiY3lobGF0bjZyNXVJSVhLNk1mdy1naFRVdEJfNkJuYw?oc=5" target="_blank" rel="noopener noreferrer">Observe.AI Featured as Leading on the CMP Prism for Voicebot/Conversational IVR Showcasing Capability in Customer Contact and CX Technology - Yahoo Finance</a>
+                    </h3>
+                    
+                    <div class="pub">Thu, 09 Jul 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="7e6aea8732">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice Bot AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE5VVFNjWmV3VEdxb251azE1TjNadzRPZ0dRcmF6UmhRNS16ZFZrRUlxbldzVjZMUG43bjVuV1JNRTh4aXdTN1lqNnAtYzJEWWJUWGx5QlZaZlhJOVkw?oc=5" target="_blank" rel="noopener noreferrer">Hidden Voice Glitches Could Hijack Audio AI Tools - IEEE Spectrum</a>
+                    </h3>
+                    
+                    <div class="pub">Sun, 17 May 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="ee650b5da6">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice Bot AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE5Day1xWlpMcElSMXFZNHhrV2hvRU5ULW84cGhvZkY0OW9jSG9lWVU4RUZ5M0FnV05MVzByTFItd1NGVTluZzNGbmNuSmlNSWJOR0x3?oc=5" target="_blank" rel="noopener noreferrer">Add voice to your agent - The Cloudflare Blog</a>
+                    </h3>
+                    
+                    <div class="pub">Wed, 15 Apr 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="ebb513757f">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice Bot AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxQS0JMSjJqNkxTa3VNbmctU0FfZnBJdmdDU3FrOXZrOW5sWFBNSVAxSllpZmtHSS0tblJkSThQS2xCVmVhX0k3dFZoRlFyQ2VzRmxtWXM1dUpUd3pkU1VQS0JETHJZSnl2cTktd2hrWUE4NTduUnBwUU5WcWkxeGFZNElnRkNQTmlUSDVDZGVqTEhickdKbG9MOUNSU0g?oc=5" target="_blank" rel="noopener noreferrer">Sinch co-founder: Re-enabling Voice, powering up AI, and creating ‘connective tissue’ - capacityglobal.com</a>
+                    </h3>
+                    
+                    <div class="pub">Fri, 06 Mar 2026 08:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="542c56bf3a">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice Bot AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxPdzZOZDZHMjlPVW9OYVBuX1Q0NGY2TGNWTFhEaVgzZ0dYTlpPQjRfSWZXcDUwdU5nQ2JWTWlKdFpwUGZYU0l3czRXMk9nMTloMGM1cWR0QlBOYVBNd3dsZWdOd1BnRnVKcUl1UFV0bW1wbWNCczdBVHZDLWZyNk9seTM4WFdMdzctU1p5cFExcjE1LUpKb3d4c2QzX3JnU0pkMnZBbndSWER4TC0yMmc?oc=5" target="_blank" rel="noopener noreferrer">Sesame’s AI voice app is the best I’ve tested. That’s what worries me - PCWorld</a>
+                    </h3>
+                    
+                    <div class="pub">Wed, 03 Jun 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="80f3262f95">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice Bot AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTFBIcVE5dFNkQm5jR3U0RnMwMVk4WXJCai12SVkyV2RDWk0yZWlseHJZM1hwd20zempkZ0xtTXk0c2ZhdV9jeUZuQTdlLVMtQUZNVzNz?oc=5" target="_blank" rel="noopener noreferrer">Voicebot Market Size, Share, Trends | CAGR of 20.3% - Market.us</a>
+                    </h3>
+                    
+                    <div class="pub">Mon, 27 Oct 2025 06:28:29 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="916eec8379">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI Agent customer service</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxPbWxFdHd2Ty1XLWhzMWxQV0pQbzBIRGZrLUIxWWdsb1A4V3hPMG5kYk1tQ2lRcUducVB6YS1uY1dWbENVUUxrSk9rSXV1ejJCWWs0N19SaTUxaG9fSmhsYnFRZHI4cDVUVnBUdkxiblZyUVNQdlFoWnN3ZHZEbC00WEE4QUluMWNhSWZTQmtvU1FOcGlVcGkxMTJR?oc=5" target="_blank" rel="noopener noreferrer">An AI customer service agent will take your call now - marketplace.org</a>
+                    </h3>
+                    
+                    <div class="pub">Thu, 23 Jul 2026 21:35:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="fb27bcedc8">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI Agent customer service</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxNWktVd0xXdk9FSUZzUVJxNFc5Ql9Sdm5YUDJGd3M0WlFZX1FXY0tjcnRPaDNFLXRoWllubUJFNl83YktaTTFGdmtUbkJVT2hCM1R4ZzdDM0pUb1BrQ01zZzN6WEV0LWdxc1AwamptSTdxNGQyWXFMYUl0aWFPRHBzQzFuYnc5cFp6cm5VZFB4UDc4cGNpWnljdmpR?oc=5" target="_blank" rel="noopener noreferrer">Tasks, not customer tiers should drive bank AI use: Deloitte - Banking Dive</a>
+                    </h3>
+                    
+                    <div class="pub">Fri, 24 Jul 2026 16:53:57 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="8d7a95c92b">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI Agent customer service</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxNS25mOVdOYk5ZNW5fNU5YQkl5SmxOV2REZk1JMmhEaXg5QjREYUpVR2VLakZXMThTTUdmbGZLZnVTZmszcnN2ZmsxQnEtRmxGNE1xQmFmU3FXZ19FVGxFOU5CYWxTQVpmUzM3N0x5c3VJNmtfRE5rM2hvMFhVdmJncWJNVTliempCTE9NMjRtM1B2NmllM1hpcm43ZzlqaVE?oc=5" target="_blank" rel="noopener noreferrer">Influx Publishes Analysis on Rogue CX AI Agents in Customer Support - Yahoo Finance</a>
+                    </h3>
+                    
+                    <div class="pub">Thu, 23 Jul 2026 11:45:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="af6f3effba">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI Agent customer service</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxPUnEzS0FIVjJFVUtwU2lTWkNjc2pwMkExcmlOT2J6cEhPZ19fT29HeGRyN290TnlSNGFzSGU0R2hzVlZUdHlLbDlGTTh0eXFxaUNlM3cwcXhjWWt0cjRGcWxHaDJ4bzBMZ3pOcXBjYk1oSWpJanlHTThlLXN2M2RYRDUza0F1ZHh6OVdSZVJ2TDJ4d0k2VWZrcmN4X09ReXRVMEpHMTd1dENERkduRkE?oc=5" target="_blank" rel="noopener noreferrer">A clear path to a live agent grows trust in AI customer service - Customer Experience Dive</a>
+                    </h3>
+                    
+                    <div class="pub">Wed, 22 Jul 2026 13:13:08 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="968ba13432">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI Agent customer service</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxPQkxDZS1LYm05aHlnaUduQURaWmRIakpxQmQ2aVVNQjlSVTVxazUxY1ZoNGowYTNlbDluQlJXZ2ptUHFkM1pjTEljWG1GLXRRX1lzeEkzb0FZeWRfQXdPMl8zSmI4dXljeXlNS1VwOWdxQkE1cm9LaFRDQklnNWhBTnlrTE8?oc=5" target="_blank" rel="noopener noreferrer">Seeing AI Agents Is Not Enough. Security Teams Must Enforce What They Can Do - The Hacker News</a>
+                    </h3>
+                    
+                    <div class="pub">Fri, 24 Jul 2026 11:30:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="0f9de65bf9">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI Agent customer service</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxNZ29mdVZkYnhCc3ZDR3lXYUpTWXNHTEg5NW5rYkdEcG1PSU9KQXJVenhhM01DdHNIa0hBQjFRd3ZLMnNqSEwzNWE3UFc3UlJOWkkxb0FqaHdIb3h5YUxkWHZUbjdqR00yejh2dVVNOG04b2d5VDFMMU04ZWJxdEp0bGhZTlg4ZndlaGMzV255aWlJWHhLR3F0MG9EbVpEVVlFcFJFR1pR?oc=5" target="_blank" rel="noopener noreferrer">The next managed security service: Deciding which AI agents get in - MSSP Alert</a>
+                    </h3>
+                    
+                    <div class="pub">Wed, 22 Jul 2026 13:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="dc8f48b0b3">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI Agent customer service</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxPUmlnMmdQVzhMdnJnS1lERjdJZkFFcWJuNlh0bndzSWNtLVlKY2lYbTV2OXlZM2gwTzNqWTJ1X2w1eVc1RGlBRWwyUENqWl9US3otVjFHWFJOT3czQms3aE4zd3pyY0o4Nk5taDBwcjM5U293dGk3dzNTUHd6aXBfU0k1RUR3NEhv?oc=5" target="_blank" rel="noopener noreferrer">SAP’s CMO on Why Brands Are Sitting on a “Dark Data” Time Bomb - CX Today</a>
+                    </h3>
+                    
+                    <div class="pub">Fri, 24 Jul 2026 12:15:52 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="3cb06b0211">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Agentic AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE9iQzlxbUtrTlNKcVVHUWNhMEN0aDFtWHJkRVRJWk5aZXVlSHdjVS00MDF6OW9nUHJKWnFSekV5UkhkVmFMdmxEZG4tamJEaUV5SDc1emNnOUpqXzBvRWI1aS1BR2F0bnBSc2ZHYklmcWRyWTNfQ2lRMXRB?oc=5" target="_blank" rel="noopener noreferrer">Google Is Expanding Access To Its Gemini Spark Agentic AI Assistant - Engadget</a>
+                    </h3>
+                    
+                    <div class="pub">Fri, 24 Jul 2026 06:00:44 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="1992242ad1">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Agentic AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxNQ1AwVFZNMGRuQVdrbTVyMVN6UXEyTUs0anMtOFZQN2xLZE1MYkhnR245OF84VGxVeGNXeWJOaWEwTVp6ZXM1Sm9ieVJneTZ6N3dOTmI0Vk5WTnFSOTdZcXdObHQxU2pYeW16c01zVUMtZlZVQTE5eEo4YjY4THN5UG5IYWZZUWdvaHFULU9WbVctNHM?oc=5" target="_blank" rel="noopener noreferrer">Agentic AI: AMD EPYC™ 9005 CPUs Wins Today, EPYC 9006, formerly code-named “Venice”, Takes It to a New Level - AMD</a>
+                    </h3>
+                    
+                    <div class="pub">Thu, 23 Jul 2026 14:50:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="8a9507776d">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Agentic AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxPQXhJVVZEYVdyZlFNQ3ZRZDl2MnZud3JtaXF5SDRxd3AwcHZycXo0ZkstV05MZTYwc3NiaHVGSE40eHJVRHV2b1RILXc5V0x1RkhEVWx2VmRLMTFEZEpma1hINDQzaXdWUGdBWVZQRDI1THoyY3JzbmF1a1g2ZkVRVGtOaGZMY28?oc=5" target="_blank" rel="noopener noreferrer">Why investors should be 'really excited' about this form of agentic AI trading - Yahoo Finance</a>
+                    </h3>
+                    
+                    <div class="pub">Fri, 24 Jul 2026 12:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="09bc511428">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Agentic AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxQeXoyMUdJUk1zbzR5SXVLQjRuQzZudVd1UGlfUkJJWHJVSVR3RkM1YVR3VXp1X0MzMXBTVUxGbDRCdTh0QVhDamZ4eHdhdENnd0ZTc0IxalI4TU5naW1udXRMVzN4bHRfaVNsYkhqYkFsNzM2aUE3d19wSmdfdkFhX0hKbzVLOEVNa2V3Z0R2MFFNR3VFb3FXaHB3MWxad3gzRmk4R3pFMA?oc=5" target="_blank" rel="noopener noreferrer">Intel Is Well-Positioned to Ride the Agentic AI Wave - Morningstar</a>
+                    </h3>
+                    
+                    <div class="pub">Fri, 24 Jul 2026 05:19:19 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="71f5b6523a">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Agentic AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxQcGtmcFlsRktpWkpKOGdtbF9BZDR3bXRPWlB4MVVJNEFBWkNIaHFlZ0N5OXlEcmZIYUNzYmJuaFdrMkdBZTh4NUREY0FmTEk5SFA2aEFjekxvWmRlLVpPZXN2MW0zdFVyMXNRal9Na3pJQWIzaVZESzBYeE1mVTJtbGpZRW1rbWY4SkxPQUdR?oc=5" target="_blank" rel="noopener noreferrer">Agentic AI in biomedical research: What is it and can it expedite science? - Stanford Medicine</a>
+                    </h3>
+                    
+                    <div class="pub">Tue, 21 Jul 2026 21:19:29 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="84264dfe3b">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Agentic AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxNb2ZNRTFCb1NtWnlJLXNYNUVpUlJubzJLaldPRnNDazJWR2lpdF82bWlYN2F4THJIcmJreWp3LW5CNEItYWQ0OFU3QjV6dlRmUVd5OVppemRqRmVjaXpBbGhWSHMtM3ktSnRDU0s4OFdMYmFvY2hpSFpmV2YzTDRLdTdJTm5KS3lwTXU1bTgyYlVzNW1aUUhVb2lpeXBvZEVfMjY5LTJ3?oc=5" target="_blank" rel="noopener noreferrer">The 3 types of people who will excel in the AI agent era, according to tech leaders - ZDNET</a>
+                    </h3>
+                    
+                    <div class="pub">Fri, 24 Jul 2026 14:38:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="8fb608561f">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Agentic AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMi0gFBVV95cUxQNFdyY2dCTW9jZzE5LTJzWVkwVUlfM1hSMC1NcGpOQVJQNVZiM0llNU1kaExobGRaQ1VEMWRNdDFMcS1icENxa3c2TTZoc3NpM0k5ajB6c1p1cVhRNU5sbC1fVG9FajVYQVlnalF4ZjBOVHg2WXF4RGxSUDVjSkRwd0FVZTVhLWRub0RocWhjTjRqM21sN0FwY1cwQmtuamdrNjhwdEVvdkFnNFB0V0ZfZTNuX0F1ek9WVlhsc2ZLMHREYUdyUGs5MWJoTjMtNm9RX2c?oc=5" target="_blank" rel="noopener noreferrer">Primis AI Becomes ChipNexus and Launches NEX for Agentic Chip-Design Automation - Business Wire</a>
+                    </h3>
+                    
+                    <div class="pub">Thu, 23 Jul 2026 13:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+    </div>
+    
+<script>
+const DB_URL   = "https://ai-digest-ef680-default-rtdb.asia-southeast1.firebasedatabase.app";
+const USER_KEY = "88dd5d05-e33d-46e0-b998-97b3ef3352cd";
+const DATA_URL = DB_URL
+    ? `${DB_URL}/users/${USER_KEY}.json`
+    : null;
+
+let state = { favorites: {}, notes: {} };
+let saveTimer = null;
+
+/* ── Firebase / localStorage I/O ── */
+async function loadData() {
+    setStatus('loading');
+    if (DATA_URL) {
+        try {
+            const res = await fetch(DATA_URL);
+            if (res.ok) {
+                const data = await res.json();
+                if (data) state = { favorites: {}, notes: {}, ...data };
+            }
+            setStatus('synced');
+        } catch(e) {
+            loadLocal();
+            setStatus('offline');
+        }
+    } else {
+        loadLocal();
+        setStatus('local');
+    }
+    applyToUI();
+}
+
+function loadLocal() {
+    try {
+        const raw = localStorage.getItem('digest_data');
+        if (raw) state = JSON.parse(raw);
+    } catch(e) {}
+}
+
+async function saveToCloud() {
+    setStatus('saving');
+    localStorage.setItem('digest_data', JSON.stringify(state));
+    if (!DATA_URL) { setStatus('local'); return; }
+    try {
+        await fetch(DATA_URL, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(state)
+        });
+        setStatus('synced');
+    } catch(e) {
+        setStatus('offline');
+    }
+}
+
+function scheduleSync() {
+    clearTimeout(saveTimer);
+    setStatus('pending');
+    saveTimer = setTimeout(saveToCloud, 1200);
+}
+
+/* ── UI apply ── */
+function applyToUI() {
+    document.querySelectorAll('.card').forEach(card => {
+        const id = card.dataset.id;
+        const starBtn  = card.querySelector('.btn-star');
+        const noteArea = card.querySelector('.note-area');
+        const noteText = card.querySelector('.note-text');
+        const noteBadge = card.querySelector('.note-badge');
+
+        if (state.favorites[id]) {
+            card.classList.add('is-fav');
+            starBtn.textContent = '⭐';
+            starBtn.title = '取消最愛';
+        } else {
+            card.classList.remove('is-fav');
+            starBtn.textContent = '☆';
+            starBtn.title = '加入最愛';
+        }
+
+        const note = state.notes[id] || '';
+        noteText.value = note;
+        noteBadge.style.display = note ? 'inline' : 'none';
+    });
+    updateFavCount();
+    applyFilter();
+}
+
+/* ── Favorites ── */
+function toggleFav(btn) {
+    const card = btn.closest('.card');
+    const id   = card.dataset.id;
+    if (state.favorites[id]) {
+        delete state.favorites[id];
+        card.classList.remove('is-fav');
+        btn.textContent = '☆';
+        btn.title = '加入最愛';
+    } else {
+        state.favorites[id] = true;
+        card.classList.add('is-fav');
+        btn.textContent = '⭐';
+        btn.title = '取消最愛';
+    }
+    updateFavCount();
+    applyFilter();
+    scheduleSync();
+}
+
+function updateFavCount() {
+    const n = Object.keys(state.favorites).length;
+    const el = document.getElementById('fav-count');
+    if (el) el.textContent = n > 0 ? ` (${n})` : '';
+}
+
+/* ── Notes ── */
+function toggleNote(btn) {
+    const card     = btn.closest('.card');
+    const noteArea = card.querySelector('.note-area');
+    const isOpen   = noteArea.style.display !== 'none';
+    noteArea.style.display = isOpen ? 'none' : 'block';
+    if (!isOpen) card.querySelector('.note-text').focus();
+}
+
+function onNoteChange(textarea) {
+    const card  = textarea.closest('.card');
+    const id    = card.dataset.id;
+    const val   = textarea.value;
+    const badge = card.querySelector('.note-badge');
+    if (val.trim()) {
+        state.notes[id] = val;
+        badge.style.display = 'inline';
+    } else {
+        delete state.notes[id];
+        badge.style.display = 'none';
+    }
+    scheduleSync();
+}
+
+/* ── Filter ── */
+let currentFilter = 'all';
+function setFilter(f) {
+    currentFilter = f;
+    document.querySelectorAll('.filter-btn').forEach(b =>
+        b.classList.toggle('active', b.dataset.filter === f)
+    );
+    applyFilter();
+}
+
+function applyFilter() {
+    document.querySelectorAll('.card').forEach(card => {
+        if (currentFilter === 'fav') {
+            card.style.display = state.favorites[card.dataset.id] ? '' : 'none';
+        } else {
+            card.style.display = '';
+        }
+    });
+}
+
+/* ── Sync status badge ── */
+function setStatus(s) {
+    const el = document.getElementById('sync-status');
+    if (!el) return;
+    const MAP = {
+        loading: ['⟳ 載入中',   '#a78bfa'],
+        saving:  ['⟳ 儲存中',   '#f59e0b'],
+        synced:  ['✓ 已雲端同步', '#10b981'],
+        offline: ['✗ 離線模式',  '#ef4444'],
+        pending: ['● 待儲存',   '#6366f1'],
+        local:   ['◎ 本機儲存',  '#94a3b8'],
+    };
+    const [text, color] = MAP[s] || ['', '#aaa'];
+    el.textContent = text;
+    el.style.color  = color;
+}
+
+window.addEventListener('load', loadData);
+</script>
+
+</body>
+</html>
