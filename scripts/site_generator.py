@@ -273,6 +273,86 @@ def _interactive_styles() -> str:
     """
 
 
+def _subscribe_styles() -> str:
+    return """
+        .subscribe-box { background:white; border-radius:12px; padding:1.4rem 1.5rem;
+                         margin-bottom:1.4rem; border-left:5px solid #10b981;
+                         box-shadow:0 2px 10px rgba(0,0,0,0.07); }
+        .subscribe-label { font-size:0.82rem; font-weight:700; color:#10b981;
+                           letter-spacing:1px; margin-bottom:0.8rem; }
+        .subscribe-form { display:flex; gap:0.6rem; flex-wrap:wrap; }
+        .subscribe-form input[type=email] { flex:1; min-width:200px;
+                           border:1.5px solid #e0e0e0; border-radius:8px;
+                           padding:0.6rem 0.9rem; font-size:0.9rem; font-family:inherit; }
+        .subscribe-form input[type=email]:focus { outline:none; border-color:#10b981;
+                           box-shadow:0 0 0 3px rgba(16,185,129,0.12); }
+        .subscribe-form button { background:#10b981; color:white; border:none;
+                           border-radius:8px; padding:0.6rem 1.6rem; font-size:0.9rem;
+                           font-weight:600; cursor:pointer; }
+        .subscribe-form button:disabled { opacity:0.6; cursor:default; }
+        .subscribe-msg { font-size:0.82rem; margin-top:0.6rem; min-height:1.2em; }
+        .msg-box { background:white; border-radius:12px; padding:2rem;
+                   text-align:center; font-size:1rem; color:#444;
+                   box-shadow:0 2px 10px rgba(0,0,0,0.07); }
+    """
+
+
+def _subscribe_section(firebase_db_url: str) -> str:
+    return f"""
+        <div class="subscribe-box">
+            <div class="subscribe-label">📬 訂閱每日摘要到你的信箱</div>
+            <form class="subscribe-form" id="subscribe-form" onsubmit="return subscribeSubmit(event)">
+                <input type="email" id="subscribe-email" placeholder="you@example.com" required>
+                <input type="text" id="subscribe-hp" name="website" autocomplete="off"
+                       tabindex="-1" style="position:absolute;left:-9999px" aria-hidden="true">
+                <button type="submit">訂閱</button>
+            </form>
+            <div class="subscribe-msg" id="subscribe-msg"></div>
+        </div>
+        <script>
+        const SUB_DB_URL = "{firebase_db_url}";
+        async function subscribeSubmit(e) {{
+            e.preventDefault();
+            const msgEl = document.getElementById('subscribe-msg');
+            const hp = document.getElementById('subscribe-hp').value;
+            if (hp) return false;
+            const email = document.getElementById('subscribe-email').value.trim();
+            if (!email) return false;
+            if (!SUB_DB_URL) {{
+                msgEl.style.color = '#ef4444';
+                msgEl.textContent = '訂閱功能暫時無法使用';
+                return false;
+            }}
+            const btn = e.target.querySelector('button');
+            btn.disabled = true;
+            msgEl.style.color = '#999';
+            msgEl.textContent = '處理中...';
+            try {{
+                const token = crypto.randomUUID();
+                const res = await fetch(`${{SUB_DB_URL}}/subscribers.json`, {{
+                    method: 'POST',
+                    headers: {{ 'Content-Type': 'application/json' }},
+                    body: JSON.stringify({{
+                        email, token, status: 'pending',
+                        createdAt: new Date().toISOString()
+                    }})
+                }});
+                if (!res.ok) throw new Error('request failed');
+                msgEl.style.color = '#10b981';
+                msgEl.textContent = '✓ 請至信箱點擊確認信完成訂閱';
+                e.target.reset();
+            }} catch (err) {{
+                msgEl.style.color = '#ef4444';
+                msgEl.textContent = '訂閱失敗，請稍後再試';
+            }} finally {{
+                btn.disabled = false;
+            }}
+            return false;
+        }}
+        </script>
+    """
+
+
 def generate_daily(date_str: str, articles: list[dict], digest: str):
     cards = ""
     for a in articles:
@@ -388,6 +468,7 @@ def update_index(date_str: str, article_count: int, digest: str):
     <title>AI語音 &amp; Agent 趨勢每日報</title>
     <style>
         {_base_styles()}
+        {_subscribe_styles()}
         .hero-sub {{ opacity:0.65; font-size:0.88rem; margin-top:0.5rem; }}
         .tags {{ margin-top:1rem; display:flex; flex-wrap:wrap; gap:0.4rem;
                  justify-content:center; }}
@@ -424,6 +505,7 @@ def update_index(date_str: str, article_count: int, digest: str):
         </div>
     </div>
     <div class="container">
+        {_subscribe_section(FIREBASE_DB_URL)}
         <div class="section-label">歷史報告（共 {len(history)} 天）</div>
         {entries}
     </div>
@@ -435,7 +517,87 @@ def update_index(date_str: str, article_count: int, digest: str):
     print(f"[site] Index updated ({len(history)} entries)")
 
 
+def _subscription_action_page(
+    title: str, new_status: str, success_msg: str, invalid_msg: str, fail_msg: str
+) -> str:
+    return f"""<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title} | AI語音 &amp; Agent 趨勢每日報</title>
+    <style>
+        {_base_styles()}
+        {_subscribe_styles()}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎙️ AI語音 &amp; Agent 趨勢每日報</h1>
+    </div>
+    <div class="container">
+        <div class="msg-box" id="msg-box">處理中...</div>
+        <a href="index.html" class="back">← 返回總覽</a>
+    </div>
+    <script>
+    const DB_URL = "{FIREBASE_DB_URL}";
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id');
+    const token = params.get('token');
+    const box = document.getElementById('msg-box');
+    (async () => {{
+        if (!DB_URL || !id || !token) {{
+            box.textContent = "{invalid_msg}";
+            return;
+        }}
+        try {{
+            const res = await fetch(`${{DB_URL}}/subscribers/${{id}}.json`, {{
+                method: 'PATCH',
+                headers: {{ 'Content-Type': 'application/json' }},
+                body: JSON.stringify({{ status: '{new_status}', token }})
+            }});
+            if (!res.ok) throw new Error('failed');
+            box.textContent = "{success_msg}";
+        }} catch (e) {{
+            box.textContent = "{fail_msg}";
+        }}
+    }})();
+    </script>
+</body>
+</html>"""
+
+
+def generate_confirm_page():
+    html = _subscription_action_page(
+        title="確認訂閱",
+        new_status="confirmed",
+        success_msg="✓ 訂閱確認成功，之後會收到每期摘要！",
+        invalid_msg="連結無效",
+        fail_msg="確認失敗，連結可能已失效",
+    )
+    path = f"{DOCS}/confirm.html"
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"[site] Written {path}")
+
+
+def generate_unsubscribe_page():
+    html = _subscription_action_page(
+        title="取消訂閱",
+        new_status="unsubscribed",
+        success_msg="已取消訂閱，之後不會再收到摘要信件。",
+        invalid_msg="連結無效",
+        fail_msg="取消訂閱失敗，連結可能已失效",
+    )
+    path = f"{DOCS}/unsubscribe.html"
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"[site] Written {path}")
+
+
 def generate(date_str: str, articles: list[dict], digest: str):
     _ensure_dirs()
     generate_daily(date_str, articles, digest)
     update_index(date_str, len(articles), digest)
+    generate_confirm_page()
+    generate_unsubscribe_page()
