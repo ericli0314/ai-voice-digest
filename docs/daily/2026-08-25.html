@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI語音 &amp; Agent 趨勢 | 2026-08-25</title>
+    <style>
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+               background: #f0f2f5; color: #333; line-height: 1.6; }
+        a { color: inherit; }
+        .header { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+                  color: white; padding: 2.5rem 1.5rem; text-align: center; }
+        .header h1 { font-size: 1.7rem; margin-bottom: 0.4rem; }
+        .header .sub { opacity: 0.65; font-size: 0.9rem; }
+        .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+    
+        
+        /* toolbar */
+        .toolbar { display:flex; align-items:center; gap:0.6rem;
+                   margin-bottom:1rem; flex-wrap:wrap; }
+        .filter-btn { border:1.5px solid #d1d5db; background:white; border-radius:20px;
+                      padding:5px 14px; font-size:0.82rem; cursor:pointer;
+                      transition:all 0.15s; color:#555; }
+        .filter-btn.active { background:#6366f1; border-color:#6366f1;
+                             color:white; font-weight:600; }
+        #sync-status { margin-left:auto; font-size:0.78rem; font-weight:500;
+                       transition:color 0.3s; }
+        /* cards */
+        .card { background:white; border-radius:12px; padding:1.2rem;
+                margin-bottom:0.8rem; box-shadow:0 2px 8px rgba(0,0,0,0.06);
+                transition:transform 0.15s, box-shadow 0.15s, border-color 0.2s;
+                border-left:4px solid transparent; }
+        .card:hover { transform:translateY(-2px); box-shadow:0 4px 14px rgba(0,0,0,0.1); }
+        .card.is-fav { border-left-color:#f59e0b; }
+        .card-header { display:flex; align-items:flex-start; gap:0.5rem; }
+        .card-body { flex:1; min-width:0; }
+        .meta { font-size:0.72rem; color:#aaa; text-transform:uppercase;
+                letter-spacing:0.5px; margin-bottom:0.3rem; }
+        .card h3 { font-size:0.97rem; font-weight:600; margin-bottom:0.3rem; }
+        .card h3 a { text-decoration:none; color:#1e1b4b; }
+        .card h3 a:hover { color:#6366f1; text-decoration:underline; }
+        .ai-sum { font-size:0.87rem; color:#555; background:#f5f3ff;
+                  padding:0.7rem 0.9rem; border-radius:6px; margin:0.5rem 0; }
+        .pub { font-size:0.72rem; color:#bbb; margin-top:0.3rem; }
+        /* action buttons */
+        .card-actions { display:flex; flex-direction:column; gap:0.3rem;
+                        flex-shrink:0; }
+        .btn-star, .btn-note-toggle { border:none; background:transparent;
+                       cursor:pointer; font-size:1.1rem; padding:2px 4px;
+                       border-radius:6px; transition:transform 0.1s;
+                       line-height:1; }
+        .btn-star:hover, .btn-note-toggle:hover { transform:scale(1.2); }
+        .note-badge { font-size:0.6rem; background:#6366f1; color:white;
+                      border-radius:4px; padding:1px 4px; vertical-align:top;
+                      margin-left:2px; }
+        /* notes area */
+        .note-area { margin-top:0.8rem; display:none; }
+        .note-label { font-size:0.72rem; color:#6366f1; font-weight:600;
+                      margin-bottom:0.3rem; text-transform:uppercase;
+                      letter-spacing:0.5px; }
+        .note-text { width:100%; min-height:80px; border:1.5px solid #e0e0ff;
+                     border-radius:8px; padding:0.6rem 0.8rem; font-size:0.88rem;
+                     font-family:inherit; resize:vertical; color:#333;
+                     line-height:1.6; outline:none; }
+        .note-text:focus { border-color:#6366f1;
+                           box-shadow:0 0 0 3px rgba(99,102,241,0.12); }
+        /* digest box */
+        .digest-box { background:white; border-radius:12px; padding:1.5rem;
+                      margin-bottom:1.4rem; border-left:5px solid #6366f1;
+                      box-shadow:0 2px 10px rgba(0,0,0,0.07); }
+        .digest-box h2 { font-size:0.82rem; text-transform:uppercase;
+                         letter-spacing:1px; color:#6366f1; margin-bottom:0.8rem; }
+        .digest-box p { color:#444; font-size:0.95rem; line-height:1.9; }
+        .count { color:#888; font-size:0.85rem; margin-bottom:0.8rem; }
+        .back { display:inline-block; margin-top:1rem; color:#a5b4fc;
+                text-decoration:none; font-size:0.85rem; }
+        .back:hover { text-decoration:underline; }
+    
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎙️ AI語音 &amp; Agent 每日趨勢</h1>
+        <div class="sub">2026-08-25</div>
+        <a href="../index.html" class="back">← 返回總覽</a>
+    </div>
+    <div class="container">
+        <div class="digest-box">
+            <h2>📋 今日趨勢摘要</h2>
+            <p>今日Voice AI產業最關鍵的發展，一是Smallest.ai獲1,300萬美元融資，專注打造超低延遲且擬真度極高的語音AI，重新定義用戶對品質的期待；二是x.ai推出Voice Agent Builder，大幅降低企業導入門檻，加速語音代理普及。值得關注的趨勢是，ChatGPT新語音功能證明「擬真缺陷」比完美合成更能建立信任，而HeyBreez獲投則凸顯多語系在地化需求，同時IEEE Spectrum揭露音訊AI存在可被劫持的漏洞，安全機制將成必要投資。對AI客服與CCaaS產業而言，市場正從技術展示轉向驗證營運韌性與真實成效，企業開始增設AI支援經理職位，且過度依賴生成式AI的「敷衍回應」已導致客戶流失，未來競爭將聚焦於情感運算、任務導向執行與可量化的服務結果，人機協作將取代全面自動化成為主流。</p>
+        </div>
+
+        <div class="toolbar">
+            <button class="filter-btn active" data-filter="all"
+                    onclick="setFilter('all')">全部文章</button>
+            <button class="filter-btn" data-filter="fav"
+                    onclick="setFilter('fav')">⭐ 我的最愛<span id="fav-count"></span></button>
+            <span id="sync-status"></span>
+        </div>
+
+        <div class="count">今日共收錄 56 篇相關文章</div>
+        
+        <div class="card" data-id="dd033b6834">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxPR19TWmNWazFJZHduMWRnN2NPbXZrMVVZZEpSdjdMZHRQd0RjVFRzcnEyaDF6THRKWGJBS2R4MTBoV0lTd0ZuMmxCaE16Y1hUb0VTVHhkZm8welBLTjIyTnppTG9iaWtxYjkxcm9YWGxKYWVDLW9vLW1rQ2JwaUJITy1qNm8xT1k0amZ2YlVmazBKUQ?oc=5" target="_blank" rel="noopener noreferrer">I made my kids a voice-mode AI tutor to help them with spelling and math. It saves me time to have more fun with them. - Business Insider</a>
+                    </h3>
+                    <p class="ai-sum">一位家長自製語音AI家教，協助孩子學習拼字與數學，有效節省家長的教學時間，使其能更專注於親子互動。此案例顯示Voice AI在個人化教育輔助的實用性，並凸顯AI Agent能減輕家長負擔、提升家庭生活品質的潛力，對AI客服與教育科技產業具有應用參考價值。</p>
+                    <div class="pub">Mon, 24 Aug 2026 18:20:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="997444541a">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTE16V2U2d2dVUkRZQW43SVhXcTdrSUJETXZZQWxocjE1UHlxMHRMTnlTcXk0empDMGxYTEZtajBHLWlHdUFHRUYtZ3ZGQU5HdHc5QVhNS2s0dTQ3TW9kWjJqbk5WVQ?oc=5" target="_blank" rel="noopener noreferrer">This tiny AI voice recorder does the work for you - Android Police</a>
+                    </h3>
+                    <p class="ai-sum">這款微型AI語音錄音筆能自動完成記錄與整理，大幅降低使用者手動操作門檻，顯示AI語音助理正從被動指令邁向主動處理任務。其輕巧設計與自動化功能，預示AI客服與語音代理將更無縫融入日常場景，提升效率並重塑人機互動模式。此趨勢對Voice AI產業而言，代表硬體與AI結合的落地應用將加速，驅動更個人化、即時化的語音服務生態。</p>
+                    <div class="pub">Mon, 24 Aug 2026 23:20:17 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="3a778a00d4">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE1zQzJrM01OTXBpT0RzNTdjRWtwTVRISVZ2VFBISDFDM2x5OWhiWkFLejc4dTVFOHdncGlKeXRRLUlQQ3dydVhoYzVtYjVmX05lNXZVZ2FJcFpxMldDSWhCTDlOZklNQQ?oc=5" target="_blank" rel="noopener noreferrer">MENA-focused HeyBreez Raises Seed Capital for Multilingual Voice AI Platform - Slator</a>
+                    </h3>
+                    <p class="ai-sum">HeyBreez獲種子資金，專注中東北非市場的多語音AI平台，強化阿拉伯語等方言支援。此舉凸顯語音AI在地化需求，對AI客服產業拓展新興市場具指標意義，亦顯示投資人看好多語音互動技術的商業潛力。</p>
+                    <div class="pub">Mon, 24 Aug 2026 09:04:09 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="a9e0d7f28f">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE1OWDFTdzZPRUZTeWdxTEFsYlVIanU5ZTNrWExpcXFRSy1WaHdrRVl1UENhSUFKMVd6YlNYS19id04tRFBtYUIyNnBkTV9UYV9tVXgzRHktdmFNWjhRWE9pQjltNGF2a0RqZmVrN1dZNDUwOHJnS3VpSzR0WQ?oc=5" target="_blank" rel="noopener noreferrer">Everyone’s Using This A.I. Dictation App That I Want to Murder With a Hammer - The New York Times</a>
+                    </h3>
+                    <p class="ai-sum">該文探討AI語音聽寫應用普及卻引發用戶煩躁的現象，凸顯語音AI在準確性與使用體驗上的瓶頸。對AI客服與語音代理產業而言，此現象警示過度依賴AI對話可能損害用戶信任，須平衡效率與人性化互動。其重要性在於促使業者反思技術設計，避免因便利性犧牲使用者情感需求。</p>
+                    <div class="pub">Wed, 19 Aug 2026 09:00:54 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="8a4bfc9c1c">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMi_gFBVV95cUxPMlI2d2hkTXRsS0tkeWdqck53MmE3SmtjOElnM2hjclY1cFVSX2piZm5QNkR4MlhPdUFKVTNlbVFYVGNCWUEzWUlXMUV4ZjZ0UFpYMkh3a2FKQ3hWdGJJTjlBZmdGSDJnTlM0X0hMOVB2cno4UGFDTmdkenhhaGZTRFdqRkY3M1FJTnlRTlI4SWxpZGZLYV9HNzZoM3dTcVp4TXE5ZlVrVzZuMnB0MkVQMGxrQThoVnAxT2lBRVpqOEZGVVlLOWZYTjZNVnoxOVNfTWJodk1LWWZKLXQ3RHVmSnl0LWVhaEdOamxXUXFMazEzWnRoNWZiTHd6X3NvUQ?oc=5" target="_blank" rel="noopener noreferrer">I spent 20 minutes counting everything I hate about ChatGPT’s new voice — and accidentally discovered why it works - TechRadar</a>
+                    </h3>
+                    <p class="ai-sum">作者花20分鐘細數ChatGPT新語音功能的缺點，卻意外發現其「不完美」正是成功關鍵——人性化的停頓、口語習慣與情緒起伏，反而讓AI對話更自然可信。這顯示AI客服與語音代理的設計重點，已從追求完美合成轉向「擬真缺陷」以提升使用者信任與互動黏著度。此趨勢將重塑Voice AI產品標準，促使業者重新思考情感運算與對話設計策略。</p>
+                    <div class="pub">Sun, 23 Aug 2026 08:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="f9a4637512">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxQMmZaeWs0Vk04eTdCdHBzZnJQOFk0ZFV1eE5HUnpZRGppWHBUbzlMbXU3TGFqMUMtaDctcDFBcjZZSXVkZDdFb19rT0VSY0tvZkl0OXJmZTB4dlFRY09NTldTX1AzQnFuRjZCZnhzemUzYnNUUjZFdkhkZ2tJWm44VDk3LXNldWRPMjc0eFJrTGRoLW80VzNNZ0tWYmVpcWNQRno1WFJCeFZJWWQxYVhEMWlUZmNHM2l3YWMycw?oc=5" target="_blank" rel="noopener noreferrer">ChatGPT Work: Voice Control Streamlines Recipe Deve… - StartupHub.ai</a>
+                    </h3>
+                    <p class="ai-sum">ChatGPT Work的語音控制功能簡化了食譜開發流程，顯示語音AI已能深入垂直領域的實際工作場景。此案例證明AI Agent可透過自然語言介面提升專業工作效率，對AI客服產業而言，意味著更複雜的任務導向對話與多步驟操作將成為可能，加速產業從單純問答走向主動式任務執行。</p>
+                    <div class="pub">Mon, 24 Aug 2026 15:05:05 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="9d51a41b0e">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice Bot AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxPRmxNTXJ5WVp6NkRwNGdqTEgyRS16Q2NUaGViMXVpSWtYOU5YOTloMnhaMy1JRlBZOW9lV2syTHI4OGNTaTRPaklwMnFPanRMaThhSjFLSDNrQ0RCc3RwOWtKUHBocEtfNGhmTC05Wk5sTk5lb2VyZW1pb2s3X0d3b0Ztc2lrVG1fSWoxdUNRMFFIYVgwdzB2SzNZck0?oc=5" target="_blank" rel="noopener noreferrer">Orvera AI Named Core Performer in CMP Prism for Voicebot Technology - MarTech Cube</a>
+                    </h3>
+                    <p class="ai-sum">Orvera AI獲選為CMP Prism語音機器人技術核心廠商，凸顯其在Voice AI領域的技術領先地位。此認證有助於企業評估AI客服解決方案，加速語音自動化應用落地。對AI客服產業而言，此標竿將推動更嚴謹的技術評測標準與市場競爭。</p>
+                    <div class="pub">Mon, 24 Aug 2026 14:10:24 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="f2f221f52a">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice Bot AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiqgJBVV95cUxNakduQy02UHNMSC1ZajUxaTBudjNsMU9vSnVEQl9HcklQaUQwQmRhS3FYbWQwSlhhU3htYzJCblB2dmozNTYzY0tQbjlIaC1ERjBaV3p4SVh6ODZBYW82czdsN0hIXzdsTlJpR2J3QTdqTjk2a21kVnNWUEtnb1ZoYTQ0c0xkVUw3RnUxVVllOGUwWW52eDN3VHhVVHNTcWJ1d1RxU1B1UE9kb3Z5QzlBTTNWdHRxUF9YSklWWXJPOUJCRmZYdWkyRFpWaTZKTS1mdHBYcmhzUmNOMHU5bHZocjJzVmZoMld1TXFnbGdoQy1XSTlyaUxvVEV6ckZuTEVTUzU5dXROQTR5eEFTRlNnT0xDQ2tLTGYtYm5OSGxjbU1URklVUHgzNmZR?oc=5" target="_blank" rel="noopener noreferrer">Orvera AI Featured as Core Performing on the CMP Prism for Voicebot/Conversational IVR Showcasing Capability in Customer Contact and CX Technology - Business Wire</a>
+                    </h3>
+                    <p class="ai-sum">Orvera AI獲選為CMP Prism語音機器人與對話式IVR領域的核心執行者，彰顯其在客戶聯絡與客戶體驗技術上的成熟度。此認可凸顯AI客服方案在實際商業應用中的可靠性與效能，有助於加速產業對Voice AI與AI Agent的採用信心。該成果將推動客服自動化技術的標準化與競爭升級，影響整體AI客服市場的發展方向。</p>
+                    <div class="pub">Thu, 20 Aug 2026 21:13:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="7e6aea8732">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice Bot AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE5VVFNjWmV3VEdxb251azE1TjNadzRPZ0dRcmF6UmhRNS16ZFZrRUlxbldzVjZMUG43bjVuV1JNRTh4aXdTN1lqNnAtYzJEWWJUWGx5QlZaZlhJOVkw?oc=5" target="_blank" rel="noopener noreferrer">Hidden Voice Glitches Could Hijack Audio AI Tools - IEEE Spectrum</a>
+                    </h3>
+                    <p class="ai-sum">音訊AI工具存在隱藏語音故障，可能遭惡意利用以劫持或操控AI語音系統，對Voice AI與AI客服的可靠性構成重大威脅。此漏洞凸顯強化音訊安全機制與防禦攻擊的必要性，將影響AI語音產業的信任度與技術發展方向。</p>
+                    <div class="pub">Sun, 17 May 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="a6630328a9">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice Bot AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTFA1Z29raHh3X3JFNGRJRTJQQTRmbk5mdHRMUndpeWp4VkJfRVlydzBUMmFENDF4bWVreU9WMC1CLVdBRzRIUUphUjhzWWREeEJEdHFwWg?oc=5" target="_blank" rel="noopener noreferrer">Introducing the Voice Agent Builder - x.ai</a>
+                    </h3>
+                    <p class="ai-sum">x.ai推出Voice Agent Builder，簡化語音代理的開發與部署流程，大幅降低企業導入Voice AI的技術門檻。此工具將加速AI客服產業的創新與普及，使更自然、即時的語音互動成為客戶服務的新標準，並重塑人機協作的服務模式。</p>
+                    <div class="pub">Wed, 01 Jul 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="2a14ff1a46">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice Bot AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxPV2tkUENnUm5HSkdObkNiNU1CZEwybnA4X2hCQ216d3FMdFhINmdEWVg0ZzNOQnMwQ0dTMXRHZHpIWVpQSzZhVjVyV19QTklKaXlnd0Y4MUZIcExLU0FFaEZRZnNzeDJaZGxuWkk1Z0d0cWxxR09LM2EzQlJ6X1IxNHZGZnhqMzlGRFd2N25JREl0QU9pTmp1cDlERFJyZEc5azJkb1llNmZoRGhIRWZRZFdHTW8?oc=5" target="_blank" rel="noopener noreferrer">Smallest.ai raises $13M to build ultra-fast voice AI that sounds genuinely human - TechCrunch</a>
+                    </h3>
+                    <p class="ai-sum">Smallest.ai獲1300萬美元融資，專注打造超低延遲且擬真度極高的語音AI，將顯著提升AI客服與語音代理的自然互動體驗。此技術突破有望加速Voice AI在即時對話場景的商業落地，並重新定義用戶對AI語音品質的期待標準。</p>
+                    <div class="pub">Fri, 31 Jul 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="ebb513757f">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice Bot AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxQS0JMSjJqNkxTa3VNbmctU0FfZnBJdmdDU3FrOXZrOW5sWFBNSVAxSllpZmtHSS0tblJkSThQS2xCVmVhX0k3dFZoRlFyQ2VzRmxtWXM1dUpUd3pkU1VQS0JETHJZSnl2cTktd2hrWUE4NTduUnBwUU5WcWkxeGFZNElnRkNQTmlUSDVDZGVqTEhickdKbG9MOUNSU0g?oc=5" target="_blank" rel="noopener noreferrer">Sinch co-founder: Re-enabling Voice, powering up AI, and creating ‘connective tissue’ - capacityglobal.com</a>
+                    </h3>
+                    <p class="ai-sum">Sinch 共同創辦人強調重新啟用語音通道，並將其與AI代理深度整合，打造企業與客戶間的「結締組織」。此舉凸顯語音作為AI客服關鍵介面的重要性，將推動更自然、高效的互動模式，並加速AI代理在客戶體驗領域的落地與產業升級。</p>
+                    <div class="pub">Fri, 06 Mar 2026 08:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="15c904c8fd">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · Voice Bot AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE9kbEJ6NzBWbGNMemtWNEk4TFNWSGNERG1fNW9Yb2Via1ZIbVoySm5tWFlRbHpKcWh5a0FvM01JeVVoMmxGN21VSFNyeXpTRTZYRnhUcVJDWi1SRnFnY1FmbXBPeGo2a0poQVlXamZQa0lCVkE?oc=5" target="_blank" rel="noopener noreferrer">BLS International Introduces AI VoiceBot for Visa Applicants - safariindia.com</a>
+                    </h3>
+                    <p class="ai-sum">BLS International推出AI語音機器人，簡化簽證申請流程，提升用戶體驗與效率。此舉顯示AI客服在政府服務領域的應用擴大，凸顯Voice AI於處理高量、重複性查詢的關鍵價值，並加速全球AI Agent於公共服務的落地趨勢。</p>
+                    <div class="pub">Mon, 24 Aug 2026 06:04:12 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="b07a3d871e">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI Agent customer service</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxPYkZnelZoOFNHaE9TQThYaGF3YUxFVGtQcE1ScGZESGlyaWZWWklGNER4TTR4NlZFc3B3Z1hESlJmYjJzRlkzam9KbWdTbldfbS1mX1JaRnpzcXpvRGl6UkU1RUNBQy1NNjBoWWZMd0Y3NDFURnk3Z0JSUTJLajRxWmlpRGJzWXphWEV4UFI3dWJOcDJUWGxiT2E1ekNOczVXWEVFTkNIUUk?oc=5" target="_blank" rel="noopener noreferrer">With customer service, results matter above all else - Customer Experience Dive</a>
+                    </h3>
+                    <p class="ai-sum">客服產業成敗取決於實際成效，而非技術炫技；Voice AI與AI Agent須以解決問題、提升滿意度為核心。此觀點強調AI客服應聚焦可量化的服務結果，而非僅追求對話流暢度，將主導產業評估標準與技術發展方向。</p>
+                    <div class="pub">Mon, 24 Aug 2026 21:07:33 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="8cdc82d4cc">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI Agent customer service</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxPdW5VT3JTd2NZQWZJckpwUUo3MV8tR2dOMjFxUFpLTUlvS1hMT2ZSS0EtZVB0emxRbUNiZVRkbktpa2l2RGVIbFczX0UzcXhsbjhPcG9VOVlCUXRnUUFRVDZEUDVKOHBVSXNDZFpGQUNJb092TVZRd2lBX2R0R3g4aGJLTVZNR0RBQmZqYVdQQU5fc0hRTzVHenA5UFdJanl1UzhTc3NTZDZOSXlON1pxcFVJNHktenpzaTVQSEE1S2l3R0tnTEU0?oc=5" target="_blank" rel="noopener noreferrer">ServiceNow, Salesforce, and Synthflow expose the operational issues behind agentic CX - CX Today</a>
+                    </h3>
+                    <p class="ai-sum">ServiceNow、Salesforce與Synthflow近期案例揭示，AI客服與代理式體驗（agentic CX）在實際營運中仍面臨流程整合與可靠性挑戰，凸顯技術落地需克服系統協作與客戶信任問題。此發展對Voice AI與AI Agent產業至關重要，顯示市場將從功能展示轉向驗證營運韌性與真實場景效能，並驅動廠商強化端到端自動化與治理機制。</p>
+                    <div class="pub">Mon, 24 Aug 2026 15:31:41 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="a06b0b1fc9">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI Agent customer service</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxOa2R0SGxpWVAyN0FINjI3bFltR3FHVWNic2V1S203a3FyUFdxZGFEV2kzS3FnNWxTQ3lGVkpKdlZQTTE4bDZuVU42MENLR1R5RGxsQzNhWndCSjhFaXk1UzRrNU5oUU14dERycDJGS2paTEJqTFc1VXJ6dngxTkpsem5ZdzhSa2R2dkNrczNNRkdUenlVN2x2UjNQR2R2Zw?oc=5" target="_blank" rel="noopener noreferrer">TELUS Digital Outlines Key Requirements for AI Agent Assist Partners - MarTech Cube</a>
+                    </h3>
+                    <p class="ai-sum">TELUS Digital明確提出AI Agent Assist夥伴需具備的關鍵能力，強調即時數據整合、語意理解與安全合規等核心要求。這將推動AI客服產業從單純語音辨識，升級至具備深度情境感知與自主決策的智慧代理。此標準的建立，有助於加速Voice AI在企業端落地，並重塑AI客服的服務品質與信任基礎。</p>
+                    <div class="pub">Mon, 24 Aug 2026 12:49:06 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="12649cbac2">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI Agent customer service</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxQNlNKNFJEWWJ1SmdyUVUtdGZNN3FkZno2RW5KTmFlUHMxOXhnc2ViWElBNE1KQWhuZE1Na2xxbE1VWEZKX2prcmJrajVFM0Vnb0VQZkQxdlZHeXdiR2JnZklVVzlCR3MyWnF3VWpCVF90cG90NjlKczZnT0xQaGtES2YzLVlkdkxKb3ZBRzI1aXdOOHpBYjl4aA?oc=5" target="_blank" rel="noopener noreferrer">5 Contact Center AI Trends Reshaping Customer Service - CMSWire</a>
+                    </h3>
+                    <p class="ai-sum">該文章指出，生成式AI與對話式AI正從輔助工具轉向主導客戶互動，重塑聯絡中心的營運模式。其趨勢強調AI Agent能自主處理複雜查詢、提供即時語音分析，並與人類協作提升效率與滿意度。這對AI客服產業意味著，從成本中心轉型為價值中心，並加速全通路智慧化部署。</p>
+                    <div class="pub">Thu, 20 Aug 2026 10:14:18 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="cfc60f56fe">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI Agent customer service</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxNUEY2cHJqVDkzbGlrREMxTmxQWnVWaGs3T1o3MGR1TlZwM29BeFczWXA3LXAzT2ZtWHpXSlloQ29qYzhlX2hFYmd0WHVpczZjS2tVVkhYcV9GUzNSbXlneDFtZG0wTHdURjFBREFhN2VyQ3BhMVhLSzdQZm13TjZXX2ZaRWZ6cVhvT1h6b0U3dHJsN05MdzdiamsxdUdhRm1abW9DSzZlcHVCa2FRN1M5Qnl3?oc=5" target="_blank" rel="noopener noreferrer">I Called Customer Service. All I Got Was AI Slop. So, I Canceled. - Forbes</a>
+                    </h3>
+                    <p class="ai-sum">這篇文章反映AI客服因缺乏人性化與解決問題能力，導致顧客體驗惡化並直接流失訂單。對產業而言，凸顯了過度依賴生成式AI「敷衍式回應」的風險，警示企業須在效率與真實服務品質間取得平衡，否則將侵蝕品牌忠誠度。此案例對Voice AI與AI Agent的設計者而言，是關於「信任成本」的重要教訓。</p>
+                    <div class="pub">Tue, 04 Aug 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="ac44883961">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI Agent customer service</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE4teWdLdHJMR1k4cGotT1lhQzBkMFV1dlYwVVBaWlJxZU9Hd0FXTTJlOGpoOUlybTNBSjVjSkdtM0hHYkhvbWxUZVN2c29ibHFyTzB2V21xQXFyTnJGRExyajVhdmlmbms4VVItTDY2X2kyNFZoakVBSg?oc=5" target="_blank" rel="noopener noreferrer">91% Face AI Pressure as Brands Hire AI Support Managers - DesignRush</a>
+                    </h3>
+                    <p class="ai-sum">調查顯示91%的品牌正面臨AI轉型壓力，並開始增設「AI支援經理」職位以主導相關策略。此趨勢凸顯AI客服與語音代理已從輔助工具升級為企業核心競爭力，驅動組織結構與人才需求重組。對AI Agent產業而言，這代表市場從技術驗證進入規模化落地階段，專業管理角色將成為部署成效的關鍵。</p>
+                    <div class="pub">Thu, 20 Aug 2026 10:20:17 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="37e8813267">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI contact center</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxPX2VmczFiN0sybVBnckhUeWZhZ2REbk4zYXBKS3gwQ0d4U3pHb1FYX3RqM0NrUjJzTWI3MVg1N3BVSFFTZ0l6VkRONFA4RVI4MEhPa1lyNVNfZzdmelJHOFE1SnBqZjBMUk1GY2pUc2ZaNFRQREo4X1NDSnhqd29JbkFMVUx3Nk1OVHJ5SW5Dd1BGdnc?oc=5" target="_blank" rel="noopener noreferrer">Will AI Replace Call Center Agents? The Future of AI Call Center Jobs - The AI Journal</a>
+                    </h3>
+                    <p class="ai-sum">AI客服與語音代理正從輔助工具轉向核心勞動力，重塑客服中心就業結構。文章探討AI取代人工客服的實際程度，強調人機協作將成為主流，而非全面淘汰。此趨勢迫使企業重新定義客服職能，並加速Voice AI技術的商業落地與投資。</p>
+                    <div class="pub">Mon, 24 Aug 2026 11:59:23 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="2dc2d29b97">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI contact center</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxNeXRubmJib2VsZThDczhXRzBudDhHU3V6X24zMVR4bU5NNTJ2TjBRdkhReFp5SFY0RlRtc0RSYXdzOVdpTHNuVlRYc3Y0WTY0STJQOUx5ZVJjYV80Q1dWdXBjeHh1elJGX3JpWm16N2JZdUpnRkMwbk1FUUNQTUJ0RWxKRGJXME1X?oc=5" target="_blank" rel="noopener noreferrer">The Ultimate Guide to CX AI Pricing: Which Model is Right for Your Contact Center? - CX Today</a>
+                    </h3>
+                    <p class="ai-sum">本文解析客服中心導入AI的定價模式，比較按用量、訂閱制與成果導向等方案的優劣，協助企業依需求選擇。此指南凸顯AI客服成本結構的複雜性，將直接影響產業的採購決策與商業模式創新，是評估Voice AI投資回報率的關鍵參考。</p>
+                    <div class="pub">Thu, 20 Aug 2026 15:55:35 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="fa18039055">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI contact center</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxQSXh1aUMtNE43WV94QnpDa2JWbGpSRjNXRmlfMUhMek1jY1hLVXo4OWZKV1BMYUdkZDJYNVRONlQ4cThvWHVkTDA4UzlWUDBXazdvUFE0dmRjWW0tb1MzQ0J1WDA2S1l4cE9Cc3YzZjNuYUF3b1F5ZUEzMjJHTFR4ZVN4NVJPa1BMTUl1bEcyNS12aWFxNjIydGFGTF9vLUg4VTlPSHRqMlkzcUU?oc=5" target="_blank" rel="noopener noreferrer">Aeromexico’s AI-Powered Call Center Transformation - Boston Consulting Group</a>
+                    </h3>
+                    <p class="ai-sum">墨西哥航空透過BCG協助導入AI客服中心，顯著提升通話處理效率與客戶滿意度，並降低營運成本。此案例證明Voice AI與AI Agent已能成熟應用於複雜的航空客服場景，成為產業數位轉型的關鍵驅動力。其成功經驗將加速全球客服產業採用AI自動化，重塑客戶服務的標準與模式。</p>
+                    <div class="pub">Mon, 10 Aug 2026 15:12:02 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="6a5350f65d">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI contact center</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxQQ28wM1R4WGZwbnRoVnNjbjUzR1Jpa0JaeVdVNllSbzFISXZ3R0xnTTFNaTlzTTdFSkVtYkd2VzJEbHV3RWxlMVppZFRiZ2o2aWtRdjJqS2w5cjlVbzd6WkZWaGF4enliNGlVSkRRQnNwRVJqV2dkU0h6LVh0eXNZdFdndlFySDBDaGZzaGhURzRIZnRDdnN5dA?oc=5" target="_blank" rel="noopener noreferrer">Contact Center AI: How to Find the Right Starting Point - UC Today</a>
+                    </h3>
+                    <p class="ai-sum">該文章探討企業導入Contact Center AI的起步策略，強調應從明確的業務痛點與客戶旅程出發，而非盲目追求技術。其核心觀點在於，AI客服的價值在於輔助人類座席、優化流程效率，並透過漸進式部署降低風險。此見解對AI客服產業的落地實踐具有重要指導意義，有助於企業務實評估投資回報，避免資源浪費。</p>
+                    <div class="pub">Fri, 21 Aug 2026 23:26:18 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="a1db92e2f4">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI contact center</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE1ad21jOGV2WEJTWkNrN1lLTmxWVGprWUwxb1NSQTlXS3hrNXFVbXRqc29KMXRuOHp1X3QtUlNiM3ZRbFFtY2lkWF84WDh2c2d4dWw1VUp1ZXpnTWdvYy1uUnZxTzNVUzAwRHljZExwYzc3cFE?oc=5" target="_blank" rel="noopener noreferrer">Contact Center Transformation: Benefits & Trends in 2026 - Salesforce</a>
+                    </h3>
+                    <p class="ai-sum">Salesforce 2026年報告指出，聯絡中心轉型將以AI代理與對話式語音技術為核心，實現全渠道自動化與即時客戶意圖預測。此趨勢凸顯Voice AI與AI客服已從輔助工具升級為營運主軸，能顯著降低人力成本並提升服務一致性。對產業而言，這代表AI Agent將重塑客戶體驗標準，並成為企業差異化競爭的關鍵基礎設施。</p>
+                    <div class="pub">Tue, 11 Aug 2026 20:50:58 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="3c351a7839">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI contact center</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxONkw3MTZqcHNlSUZmWDJQSUEwOEItZWNhUFk0V0ZlalRJU1FLb0RldVZKbmRlUE1KREhlUk1KaG1nMi1sb2FyZVdfaERPZWQxcmpDZ2NMc09iR0lub3lncU1NZFVaRE02VWk1RS1oeEExY3padzFqRXBOWm8wQVJLbDdyalh1bkwwek54OFZsLWV4Z09SZm5MVElB?oc=5" target="_blank" rel="noopener noreferrer">Regal ties its voice AI agents into Five9’s contact center platform - SiliconANGLE</a>
+                    </h3>
+                    <p class="ai-sum">Regal將其語音AI代理整合至Five9聯絡中心平台，實現雙向系統整合與數據同步，顯著提升AI客服的部署效率與營運靈活性。此舉強化AI Agent在企業客服場景的落地能力，並驗證了語音AI與既有CCaaS生態深度整合的產業趨勢，對加速AI客服普及具關鍵指標意義。</p>
+                    <div class="pub">Thu, 13 Aug 2026 14:00:45 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="92c8dd3575">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · conversational AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxOOG5saHNCM0tXQVpHaG53cFRYYkdSeXFXbkUtUEYwY1lzcDFxZGVoQklTWmFJQjBqSUpva3BBMFQ0RHR3Z2IxaWpoVUJRS2Z0SEFvdTZfdldfbFFYbFVSV0pSRWpqSjRhOEFIMU12aTYzU2lfUi1TbU1DWlNHSmxyTTFGdzMxMkoxbTVzRG5fWQ?oc=5" target="_blank" rel="noopener noreferrer">UK Conversational AI Market Size, Share,Trends, Growth Analysis Report, 2030 - MarketsandMarkets</a>
+                    </h3>
+                    <p class="ai-sum">英國對話式AI市場報告預測至2030年將持續成長，凸顯企業對AI客服與語音代理的採用加速。此趨勢顯示Voice AI與AI Agent已從輔助工具轉為核心營運環節，驅動客戶體驗自動化與成本效率提升。對產業而言，此報告印證AI客服解決方案的商業價值與規模化潛力，將吸引更多投資與技術創新。</p>
+                    <div class="pub">Sat, 22 Aug 2026 15:37:34 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="5c1a737e4c">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · conversational AI</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxQNl9GdVQ3WnZJdnlPQ3JvYzlFZ0toZXJUYlRCa0FETjRUeGp3VE5NcGRWVWZGUnVGaklXRlR6dFByQmpkMTN4YjRKelN0UWFuVXd5cnVNWmFlTFBWelNYOC14UFZBZkIxam03X29NR3c4VXpXQnd6MllfbjJKUTBSX2VIcDFjaDFacDFqYl9BVm5MX3pxZ0N5NTFnbzJUWG1T?oc=5" target="_blank" rel="noopener noreferrer">Conversational AI Platform for Financial Services OmniAI Rebrands as Monumint - Finovate</a>
+                    </h3>
+                    <p class="ai-sum">金融服務對話式AI平台OmniAI更名為Monumint，凸顯AI客服與語音代理在銀行業的垂直化與品牌重塑趨勢。此舉顯示對話式AI需深度整合金融場景，以強化信任與合規，對AI Agent產業的專業分工與市場定位具指標意義。</p>
+                    <div class="pub">Tue, 18 Aug 2026 21:57:52 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="5b08263be5">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI call center automation</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxOeGFUSG00RjhyV2NvdlNUc1BjZWF2bnZqU3NETVV4UnlQZ3l2aWpZOVp0dEVMOWhrMjZWOGtrQVk3R01ibmxfLWEtZDQ5WUZYa3o0eGVhVFd6dmpIekd4SEk0TURFemduREZkNzk1S3ZmZEJHODY0N3RjTGlIQXpCYkNHLXBtb3ZMNnM5SDhyenB0bzN6cnZSdWhReEx0Qmc5clJQMnZSWWlYSU0zeFlNNnRMbw?oc=5" target="_blank" rel="noopener noreferrer">Thousands of customer service workers face the ax as AI takes over - Los Angeles Times</a>
+                    </h3>
+                    <p class="ai-sum">AI客服技術正加速取代傳統客服人力，數千名從業人員面臨失業危機，凸顯生成式AI在服務業的顛覆性影響。此趨勢迫使企業重新評估人力配置與成本結構，同時也警示產業需加速轉型，以因應AI主導的客戶服務新常態。</p>
+                    <div class="pub">Tue, 28 Jul 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="10b555a0df">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI call center automation</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxOZXZOd2RlVXI1OFNaWnM0MjNWUTN4UmJVaWZKQm4zSzE4WmtfNzFuYlVjT0NzSDhBVmxLaVpoZFRKdzFrUGN1OTM3Mm5XMU1VdEgwMmxqT25QUldUamZudTZYS1dhczEtNVI3RG5rTHNPYVBMUnRhR2lQMUdSanJNVTNoOFZOLU5oSkZoOE5hY2hXY3RucllUU3NuR3kzMFdzdW05akdZR2Z4OFZ3SkIwazhfd24zZlNMZWVqREwwa3Bia281VFJwZG9mZWZ2TGgwbk01NGZsSQ?oc=5" target="_blank" rel="noopener noreferrer">Regal Partners with Five9, Bringing AI Voice Automation to Enterprise Contact Centers - PR Newswire</a>
+                    </h3>
+                    <p class="ai-sum">Regal與Five9合作，將AI語音自動化導入企業客服中心，顯著提升通話處理效率與客戶體驗。此舉彰顯AI Agent在客服領域的落地加速，預示產業將從傳統IVR轉向更智慧、自然的對話式服務，重塑客服營運模式。</p>
+                    <div class="pub">Thu, 13 Aug 2026 14:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="aa2847952e">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI call center automation</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxORWtWd1pvNjhzUTFzUkZ4OG5odHctVERLamVfeDBybnRXaFF1a19Dc1RZWmxxcGg2UUZKazBOUmhZb2lyQmRreUw5aFRkZkc2R3hod291U1RBVnFMSkxPVzJDR1NKYzFoRTlZY1FUY18wdV9mcG9WUUNPMWZwTU5SVUdWSGl1c0c5MG1sc0o1Ni0xV09kclRMdTB0bw?oc=5" target="_blank" rel="noopener noreferrer">Call center automation: A 2026 guide for CX and operations leaders - Zoom</a>
+                    </h3>
+                    <p class="ai-sum">此指南針對2026年客服中心自動化提出策略藍圖，強調AI代理與語音AI如何重塑客戶體驗與營運效率。其內容凸顯生成式AI在即時語音互動、意圖辨識與動態回應上的突破，將加速傳統客服轉型為主動式、個人化的智慧服務。對產業而言，此趨勢意味著AI客服將從輔助工具躍升為核心營運節點，重新定義人力配置與服務成本結構。</p>
+                    <div class="pub">Fri, 26 Jun 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="add99ea311">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI call center automation</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxQeVVfYlBRRTNVS2wzZHB4cFVRM3EyN2dyVjBIenJfcmRDdk53NXVpODVBeUxqTEJUQzkzeFJ1SG1zRW1nTzlDNm9UaFRaeWI1U01ZSlBvekJrMkVTWGlhWjZOdkRrcmJBRUs0c2kzc3p1TTBBWkFCT1lGUUNmY2Q0MzR1STIyM0hFbVdvLVdB?oc=5" target="_blank" rel="noopener noreferrer">5 numbers showing how contact centers use AI - No Jitter</a>
+                    </h3>
+                    <p class="ai-sum">該文章以五項關鍵數據揭示客服中心採用AI的現況，凸顯AI Agent已從輔助工具轉為核心營運環節。數據顯示AI能顯著提升客服效率與客戶滿意度，並降低營運成本，對Voice AI與AI客服產業的規模化落地具有指標性意義。此趨勢將加速企業全面部署AI客服，重塑客戶服務產業的競爭格局。</p>
+                    <div class="pub">Thu, 09 Jul 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="e221ab1640">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI call center automation</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxNbnZxeVlrd3BRcVlkaWpGZjZpeGJqbFYtZDRkR1VHcTVLa2JRSzJEdkppOV95bklOa1NnRHpqdHFEQXFlMDJ1UzYyd0ItdDgzbGRqM3FvRVJ0MHdSZTlnMUFhRUo2cVdYWFRxODQ4TE96MU1DYVZOdHZpSDRuTDh3ZzB3enFqZHB2ZlIweVNKN25Ed1ZabGkzRDRHSVFKOVJQSHNwSnhBNU5FREU4?oc=5" target="_blank" rel="noopener noreferrer">AI-powered virtual agents: Automating complex business processes - Amazon Web Services (AWS)</a>
+                    </h3>
+                    <p class="ai-sum">AWS探討AI虛擬代理如何自動化複雜商業流程，凸顯其從簡單問答進化至跨系統任務執行的能力，對AI客服產業而言，這代表服務將從被動回應轉向主動解決問題，大幅提升營運效率與客戶體驗，並重塑企業流程自動化的標準。</p>
+                    <div class="pub">Mon, 06 Jul 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="6882eac3c1">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI unified communications</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxOblZZNTJ1MDR5OWpLVklvejVsVk5GbFY1NFZWelB2TV9kV19IUlRBWEVTLXp6N2U4d3JUdHdHNTJCS28zeEdxYmxZU0E3US1YY2QzTWpjN2hHZ05YYVhEVFpETHFpUjBudjU2NXA1ZTNJeDBRMFZMMmNyUHlNVUFmbXR0OVRUYXZLRi1Jcm5tYTNmR2VqODhUTC1mbGJreDM3R1Fz?oc=5" target="_blank" rel="noopener noreferrer">How AI Is Quietly Reshaping Unified Communications - UC Today</a>
+                    </h3>
+                    <p class="ai-sum">AI正悄然重塑統一通訊（UC）生態，從智慧路由、即時轉錄到自動化客服，顯著提升協作效率與用戶體驗。此趨勢將加速AI Agent與Voice AI在企業通訊中的深度整合，使AI客服從被動回應轉向主動預測與解決問題。對產業而言，這代表UC平台將從工具進化為智慧中樞，成為企業數位轉型的關鍵競爭力。</p>
+                    <div class="pub">Fri, 21 Aug 2026 22:02:54 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="b3a0ef4478">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI unified communications</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMi5gFBVV95cUxOM3BYdW55ZFRZZkNpVHNWMkdmY3dZNzVuSzNfMnJXbnl6c0hva1hBNDRSVXRhckNZMzF2blMzQUQtREhYbjlkNW4yM2tKdUY5OHZYNWZRcGdRRFBMYnlkY3RHMWU0TzBUejFRQmtaOHJLdG5ITW9mMmVGZ0I0SElpOHYtbE10dkJCeWNSV09kRURoQTNHQ0Y2eTYxdzcyTUxOako3c3dWUk9OdWtycDhUMUpOVExRT2xGSmJHVkJ3SEEzdDM3YmNqUFR1SkJxU2RRcHNzU18zUjFCc3I3YW9scjg1LTNLQQ?oc=5" target="_blank" rel="noopener noreferrer">FirstComm Launches AscendOne, A Unified UC + CC + AI Platform Transforming Business Communications - PR Newswire</a>
+                    </h3>
+                    <p class="ai-sum">FirstComm推出AscendOne整合通訊平台，融合UC、CC與AI技術，重塑企業通訊流程。此舉顯示AI客服與語音代理正走向統一化平台，將加速企業數位轉型，並提升客戶互動效率與智能化服務水準。</p>
+                    <div class="pub">Tue, 13 Jan 2026 08:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="5c68df41ec">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI unified communications</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxPcXBYcFFLSEp4R2dQeFBwTEtrUl9JQjB0cF9tRFoyMi1ZZGl5V0FNMXRJLVdNVTRWUnhhQzJZTFZxRGU5bjBEMXU4LXZwOTZWYWphLXhHYU96c2dkbmdjOXVvQXpsREVUWFlIYVlvQWdyclA2NEdfbFRGZ2hudmFfWDRlcVFtc1hEb2luS3I3dnRpa0x2RGdVZDhzYnNJQnNqZGNEb1VrWHpzenJ1OVE?oc=5" target="_blank" rel="noopener noreferrer">NiCE and RingCentral Expand Strategic Partnership to Orchestrate the Future of AI-Powered Customer and Employee Experiences - Yahoo Finance</a>
+                    </h3>
+                    <p class="ai-sum">NiCE與RingCentral擴大戰略合作，旨在整合AI客服與員工體驗流程，打造更智慧化的企業通訊生態。此舉將加速AI Agent在客服場景的落地，提升自動化回應與服務效率。對AI客服產業而言，代表著從單點工具走向全流程協同的重大進展。</p>
+                    <div class="pub">Thu, 23 Jul 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="94b3617583">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI unified communications</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxOQWFFSmZWNVVZdnpOUWVwUlA5WlFINzhSa01VdVA0NV9uN1lUanFySFh2Y3N6YWhwZkc0UGREdUVyOEl0M2ZhMlhlN0RTUWpDdWtlTnVvV3pyVmFEcjlnV1RQWjFzU0NTb2RzNjhod1hub3JHTGgtQ0Y2c21LaUlGUlF4elQtdDdIT2k0NUMxajRuQVl2VUJQeG04MEgteHlVRDU3bnJmUlplaTJNNk9lMm14UDZnUzVuRVlFQWd3bHRadFRo?oc=5" target="_blank" rel="noopener noreferrer">Responsible AI for UC and CX: A Governance Model That Survives Multi-Platform Reality - UC Today</a>
+                    </h3>
+                    <p class="ai-sum">隨著企業在UC與CX領域採用多平台AI，負責任的治理模型成為確保合規與信任的關鍵；此框架對Voice AI與AI客服的部署至關重要，能降低風險並提升跨系統一致性。本文強調治理需適應多平台現實，直接影響AI Agent的決策透明度與用戶體驗，是產業規模化應用的必要基礎。</p>
+                    <div class="pub">Sat, 22 Aug 2026 02:42:11 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="8a0abf8125">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI unified communications</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxPV0JoalFEY3NxcVVvUk1pM2duVlhSUXJnYkhqakZzcHBhM0o4MkVOOFc4OXlKRXFSN25sM2hxWUtOUGE2OFFnYk8zSGtnVjJOS1djMjBYRFdyZlIzTGVMRmNYWmNhMHFVbU9iZHMzTjdEQzdfNndOTEpNQ0M3T2NUcWtOa2xhbmgyUFd0VG5uQjVSLXBNcm1NMDdFdjhOcFdjU1UwTUZCaW11U2UzVFUxZlVHZ2TSAbwBQVVfeXFMTmotNktZbTRwdUJOZnVlbU82al96MnVScHNMcnk5blA2WS0xWTNQQjBWRkRjLWxiNVdfcVc3Q0pCbHR3WEFKaVBuRFF4NjFzZW9TbVpYM0t0T2ZJd2dZUjRYQ19vMGNJQVFhcC1FY29tMlRPYl9GN2U5bDNkTlBhYlRuS1U2SnVTZ0lUeGU2ZzVIM1pfSXhxcmZxSEJrOWl5X1JMcjlvalFzSWRPeWpROE14V3BldG1lYU5xb24?oc=5" target="_blank" rel="noopener noreferrer">Assessing the value of agentic AI in unified communications - TechTarget</a>
+                    </h3>
+                    <p class="ai-sum">代理型AI在統一通訊中的價值評估顯示，其能自動化複雜工作流程並提升協作效率，對AI客服產業而言，這代表從被動回應轉向主動決策的關鍵轉型。此趨勢將重塑企業通訊架構，使AI代理成為客戶互動與內部協作的核心樞紐，並驅動更智慧化的服務體驗與營運成本優化。對Voice AI與AI客服而言，此評估凸顯了整合代理能力以實現全通路自動化與即時問題解決的戰略重要性。</p>
+                    <div class="pub">Fri, 24 Oct 2025 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="777b372ddd">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · speech recognition AI enterprise</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxQNmhpdW53QmpQNzdVbDl3QUpMa1B1dlZrSTN2WkNlb1FzOTJGXzFMNEdteXlneXpIX2Q4RmVhcTZ5WHdaZjdHbzN5emhqam1JMGxKaXVVV0xtX0JGa09zREpkWm1pbTlGYWl1bkJrMC16RjZJRkh1d3c0bzBGaEk3Ni1maWRBeWJJdXNFTlhiSzBROHpxYWdscDk2MUd0NGExcmRTMWR1X1pWbnM0?oc=5" target="_blank" rel="noopener noreferrer">Deepgram and IBM Introduce Advanced Voice Capabilities for Enterprise AI - IBM</a>
+                    </h3>
+                    <p class="ai-sum">Deepgram與IBM聯手推出企業級AI進階語音功能，顯著提升語音代理（Voice AI）的互動品質與效率。此合作將強化AI客服的即時回應與自然語言理解能力，加速企業採用聲控自動化，重塑客戶服務產業的標準。</p>
+                    <div class="pub">Tue, 24 Feb 2026 08:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="bf4dd9bf01">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · speech recognition AI enterprise</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE51VTZyLTZhbXR6NGJMNVhrY1VveWo0cUtsSFEyVjFsUVJMOThZVnJNV3B0X21GSmVGNDNoeE4xU0t6a2taUXd3Nmtxc05yWUNsdWozV1ZRMWZuOFlMR3dYUnIzTWxidTBHcnVzLU1kN3dnOV9z?oc=5" target="_blank" rel="noopener noreferrer">Voice AI Investment Surges as Enterprise Applications Gain Traction - Newcomer | Substack</a>
+                    </h3>
+                    <p class="ai-sum">企業級語音AI應用加速落地，帶動相關投資熱潮顯著升溫，顯示市場已從概念驗證轉向實際商業部署。此趨勢驗證了語音介面在客服與企業流程中的剛性需求，將驅動AI Agent技術迭代與產業鏈成熟。對AI客服產業而言，這代表資本與資源將進一步集中，加速淘汰缺乏場景適應力的方案，並鞏固頭部廠商的競爭優勢。</p>
+                    <div class="pub">Thu, 30 Apr 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="6a927b5ad4">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · speech recognition AI enterprise</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMi9gFBVV95cUxQc1JRTk5WTzFVYjg3S29KWGV5T3J1R0ZXV0FTUHphZTFMNjFOUVcxd0dtc3pvdUZwSDBVcUdhS0lYcFFKR1RudlAyN3MyWG1QRFNyd0xVN09JczcyRWZFREhRRzEyMjc3N191bkFLcmhxUXJ6dXN0MG14UjBwcnkzdjZENHN1aGw4a2FPekh3UlI1WWJBS2JnTFVhNWdtM0M1VkdpbFh4eEZqOWU2V293VkxuR05KS1UxeFJ5SXNPalZXdGxOMzB1b2pJWEFLY2hhV3c3bTBRYWpsSk5YTlJ5YmhiVlRkX2VjRlN1c1JRbmx0UEdBQnfSAfsBQVVfeXFMTkUyc0tFRnNHVmNEMHlzckhZS3EwaklzUXhZaGNrUTUta1NvdmFjZ0I4ajM5cV8tRTV2bXQ3RUhOa2ZES1c1VWFrdzVsOXNOTVpXR3BWWFZNa3RGeHo4NHRTaHFsUWRDeEdpb09JbGs4MndkazVNSlo2UUtUOGFDWjVrd2NkX3JLVVZ1WUlfandnMU9faFZ6OW43cWZVVWc4QXlfWHM4SGpEdWFkNTRoaFJ6LXVLS3NkNTAzUTdReTYzZzBpZnZEMHg1Qks5T284TTk2OEFZcHBpMWxQOUJTcVM1Z2ZXcEtkbWlxeklIQ2dTbE56Q2tsbTJmVUU?oc=5" target="_blank" rel="noopener noreferrer">Cohere AI Releases Cohere Transcribe: A SOTA Automatic Speech Recognition (ASR) Model Powering Enterprise Speech Intelligence - MarkTechPost</a>
+                    </h3>
+                    <p class="ai-sum">Cohere Transcribe 以頂尖自動語音辨識技術強化企業級語音智能，顯著提升AI客服與語音代理的準確度與效率。此模型將加速Voice AI在複雜商業場景的落地，成為驅動AI Agent理解與回應能力的關鍵基礎設施。其開放釋出將重塑客服產業的技術標準，推動更自然、即時的語音互動體驗。</p>
+                    <div class="pub">Thu, 26 Mar 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="90dc5734f1">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · speech recognition AI enterprise</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxQdFlyM0Zha2c4aWdSV2pERlpUSTlocDdNdUF6NDZWdThnbmhKbzkzcFpLR3FXT0pTYXV2S3p2bUZmNWc0WU5DQjQ4VGhyM0k2YnNYTUZwU1ppYXV0QjI0eGVEVU42bzdsMEplQlE5b3dGeFo3dG5Gc0JoeW9EOVVld3pkZFhuWk9YaTdDTzR0M0VYT2lubVlFbmxMZ3VRTnlRRnBfa25iNDk5Qm5fSzVSa0NVeWdJX0RpWi1RTWlYd1Rma1RVNjVmQTBvcw?oc=5" target="_blank" rel="noopener noreferrer">Smallest.ai Gets $21M in Funding to Build Voice 4.0, the Next Generation of Enterprise Voice AI - AI Insider</a>
+                    </h3>
+                    <p class="ai-sum">Smallest.ai獲2100萬美元融資，將打造企業級「Voice 4.0」新一代語音AI，標誌著語音互動從傳統IVR邁向具備深度理解與生成能力的智能代理。此舉將加速AI客服產業從規則式問答轉向自然對話與自主決策，重塑企業客戶服務的效能與體驗標準。該投資凸顯語音AI作為企業關鍵基礎設施的戰略地位，預示著AI Agent在客服領域的規模化落地與商業化競爭將更趨激烈。</p>
+                    <div class="pub">Mon, 10 Aug 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="bbc8f7fa02">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · speech recognition AI enterprise</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxOMTVIVTZvUlgyeVA3MFE2ZnVMNU1DU1l2ZlpxS2V5UExDa3JET3BJVUoyX2QwMmpybHp4Z0VPTG4yXzlwaVZmS3R2Uk0xazVBTy1ZalNVd0RlTXhybWN1clVpWWRRMC1sSXZVMUlsbTBPVmdISTNzdDUyQ19zbmRtWXMtN3NpQndMU1Y3ZVpRWTc2T01GSHFtRVcyclEzM0dXb0dJSXd1OWl1V25NUUV6ZQ?oc=5" target="_blank" rel="noopener noreferrer">Deepgram brings Nova-3 speech recognition to Snapdragon PCs - Techzine Global</a>
+                    </h3>
+                    <p class="ai-sum">Deepgram將Nova-3語音辨識模型導入Snapdragon PC，實現高效能本地端AI語音處理，降低延遲與雲端依賴。此舉加速了AI客服與語音代理在邊緣裝置上的部署，提升即時互動效率與隱私保護，對Voice AI產業的終端應用普及具有關鍵推動力。</p>
+                    <div class="pub">Tue, 21 Jul 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="947470ad74">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · speech recognition AI enterprise</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMi5gFBVV95cUxQNEdmaW9WZGktSnJONmY5ZFVNMjJMS0JKbDRaZzRHZGFCMjBGNEJiTTUxbU9PaHdlZWx6d3NUMlY1MzJvMlc5SkQ1ZU5KQ3k5NE1FOTJBeGpyTnlKR1VVdUdScHVfUkhsZUVmMFNBbUVodUZHbzJwc1ZIdzhBOHltVkZhelI5UDRGUXo3ckR5RUotN2NGYlREdldpOXZfa3hSdEc3c0NFVEVBVTNzVGtqTVdfRGoySGJNem9EYU1wYVZHN2pua2ZYTm1kaXVVcUNQWEI4OE9FSkYyMjJ5Nmx4ZjBwVnl3dw?oc=5" target="_blank" rel="noopener noreferrer">Audio-Native, TTS-Optional: PolyAI's Dialog-RSN-1 Carves Out Third Enterprise Voice AI Architecture - Tech Times</a>
+                    </h3>
+                    <p class="ai-sum">PolyAI推出Dialog-RSN-1，開創第三種企業級語音AI架構，跳脫傳統TTS依賴，直接以音訊原生方式處理對話。此突破大幅提升AI客服的自然度與反應速度，降低延遲與成本，將重塑Voice AI產業的技術標準與部署模式。對企業而言，此架構代表更高效、更人性化的語音互動解決方案，加速AI客服全面普及。</p>
+                    <div class="pub">Fri, 31 Jul 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="71e1812900">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · speech recognition AI enterprise</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxNQ0pzeDNmNkRDY201U0lwZS1TUV83NkExZ3dkMkdwejZHcHkyVGlsck50aHdsY0N4STE1SHo0Qjh5RS1lYnJjR3hpVXpaU3MzeGhFV1E3d3c3THgycFg4aFZFbFVxeDhORm1xS2JxN1RDNXJZX1Iwa0pNUEJYaUJVVVRMOGRTUzdEM0QwODBOVmM4b1VMaXc?oc=5" target="_blank" rel="noopener noreferrer">How voice AI is transforming customer service - Computer Weekly</a>
+                    </h3>
+                    <p class="ai-sum">語音AI正透過自然語言處理與即時對話技術，徹底重塑客服產業的運作模式，顯著提升回應速度與客戶滿意度。此趨勢不僅降低企業人力成本，更驅動AI Agent從被動問答轉向主動解決複雜問題，成為客服系統的核心競爭力。這項變革凸顯了語音AI在未來客戶體驗與自動化服務中的戰略關鍵地位。</p>
+                    <div class="pub">Tue, 07 Apr 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="bcf9e1b46b">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI IVR telephony</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxQS0JaME1sM0FZTEQtWVJUblhjbERYcEozVEg1WEN5Vng0Z3NIa1pJbzlJenBhbHgtMjF6bFZ3YW1TV0ZxM1Vlay13SjB3eDBxOGZ1ZE8wdkJUaVVwQjc0MzJlbFlxTkJGMkxIUGx0MmV2Z2F2VlFndEYyb05ac1NSY1JGOE1FTHRhQTh0VUg5MkRsS0JLQ21yX0pDY2Q5LUV6QjlMakdJX0l5LWVwMWZfUDJ1dw?oc=5" target="_blank" rel="noopener noreferrer">From IVR to agentic workflows: How voice AI is reshaping customer support - No Jitter</a>
+                    </h3>
+                    <p class="ai-sum">語音AI正從傳統IVR進化至具自主決策能力的代理型工作流程，徹底改變客戶服務的互動模式與效率。此轉型使AI客服能主動處理複雜任務、串接後端系統，大幅降低人力成本並提升用戶體驗。對產業而言，這標誌著客服從被動回應邁向主動解決問題的關鍵分水嶺。</p>
+                    <div class="pub">Fri, 13 Feb 2026 08:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="cd5c71cd2d">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI IVR telephony</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMi7gFBVV95cUxNWnBOb1NHR213RmRvR3JmOVZocERyRDlUWS1NaV9aRkI5a0x5dG5SX0lNTkNmWHFxcVFQaXBxeFIyV0MyNGJoa0pJTzdrV3NNd1JKemljWk44X1JaVlRrQUZnM0lySHk1T1JLNzY5TlJjU1pxcWdZYl9yMTlpQkMwMklpc0VHT0pwYmZHSmdLdGoySGlFazBodUhMWC0yQU9KSDRqc3ZfUFJJSkVUam1yMUg0THBRR09KLUV2cndDYnhIUXp4TldMSzg3NFdES3RkQkE5T0VsQzhWRnBHZWN3QmhpRklWX0RhT0tETE53?oc=5" target="_blank" rel="noopener noreferrer">Extend AI voice support with real‑time voice agents in Copilot Studio | Microsoft Copilot Blog - Microsoft</a>
+                    </h3>
+                    <p class="ai-sum">微軟Copilot Studio推出即時語音代理，將AI客服從文字擴展至自然語音對話，顯著提升企業客戶服務效率與體驗。此舉強化Voice AI在商業場景的落地能力，預示AI Agent將成為客服產業標準化工具。對產業而言，此技術降低語音客服開發門檻，加速AI全面取代傳統IVR系統的趨勢。</p>
+                    <div class="pub">Mon, 27 Apr 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="90b57a7ab3">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI IVR telephony</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxONU1nS204NjM1VnhNclR3UVdrMUxUUXB2ckhWT2YxZFlFTDRLUFZqYnlHa29HUmZoSnJtUDRNbkstWDdBdlN5a01GTXpmeFVpWTZHbkxrUS1GcXF1QjNra3dudGJpanF1REpwdGczT2dmbUpTbEl5SDRaekQ3RG9KZFB2TTBVdWlWYXpoWjBlQXF4dERVWVFvVDNzZ1ZjZWE4ZGtIajJvRXI?oc=5" target="_blank" rel="noopener noreferrer">Synthflow Alternatives in 2026: 7 AI Voice Agent Platforms Worth Switching To - Hardware Secrets</a>
+                    </h3>
+                    <p class="ai-sum">2026年AI語音代理市場競爭加劇，Synthflow面臨七個新興平台挑戰，這些替代方案在自然語言處理、多語言支援與CRM整合上更為成熟。企業轉向更具成本效益與低延遲的AI客服方案，顯示語音互動正從基本問答升級為複雜任務自動化，重塑客戶服務產業的技術標準與部署策略。</p>
+                    <div class="pub">Fri, 14 Aug 2026 17:27:16 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="63af716b73">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · AI IVR telephony</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxOYlBUN0hxTUZ5eGpIeENrcWM4Z0NJbGIxTnRwQi1id2RJMHFuMkEtMG5zcDBmYl9xelJKd0RJU1lUNWlNdERrODNSS203WDc1aFVZWkk4MC1yQVFVckMxbi1SRFM3b2E4NENJb1NsbVVmNjhRMUtYeEFHcHF4a05ad3pYNEhILVdlZElVVEREZ1FLZmVYNjNlQVRZTUtzSVRjOE1GZ3l5ZkJwemJldTlZ?oc=5" target="_blank" rel="noopener noreferrer">Designing a Real-Time AI Voice Agent With RAG, SIP Integration, and Compliance Guardrails - HackerNoon</a>
+                    </h3>
+                    <p class="ai-sum">本文探討如何設計即時AI語音代理，整合RAG（檢索增強生成）、SIP（會話發起協議）與合規防護機制，為AI客服產業提供可落地的技術架構。其重要性在於解決語音代理的延遲、知識準確性與法規遵循痛點，加速企業部署更自然、安全且可擴展的語音互動服務。此設計將推動Voice AI從單純對話進化為具備企業級整合與治理能力的關鍵基礎設施。</p>
+                    <div class="pub">Sun, 12 Apr 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="140d234c0f">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · generative AI customer support</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE1RdEdfbWU4NjBPQXRuclpxWVppdl9SMjJ5YjJmOHNRZVMyOHM2djdNdHQzT2JxdDJSa2UwZ3NsQVQ0cVQxSnozb0wtLVNRWXR2Mld2MkFjTWFvUzN1dncxZUFrbXFBN3RRaU1JMUpLbUtVY1N4TVp6bkJVMA?oc=5" target="_blank" rel="noopener noreferrer">The true cost of AI customer service is customer loyalty - qz.com</a>
+                    </h3>
+                    <p class="ai-sum">過度依賴AI客服恐侵蝕客戶忠誠度，企業省下的成本可能遠不及流失的長期營收。文章警示，當顧客遭遇複雜問題卻只得到機械化回應時，品牌信任將迅速瓦解。此趨勢凸顯AI客服需與人性化服務取得平衡，否則將對產業造成反效果。</p>
+                    <div class="pub">Thu, 20 Aug 2026 19:20:38 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="6cd405294b">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · generative AI customer support</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxPZWVVOFhOOFJxa2NCcExMaWZCbXhJVk8zUll2T21seWs1MElJYU8xYTdiT1QtaDNXQjJNajl2akFRcFFQTlN6SUx5NHRudm9pVlFISVkwNXhTOG96Zm5TYzBqeVMtRkpsUjZ2bE5GNXo4WFZTMVdzOEZTSjVXeEhxbS1UdjcxbzlTUklYZXR5WkRfeFQyTzJQYjlkLVBLaFNtXzlRWGg4VThZcGJsUFE?oc=5" target="_blank" rel="noopener noreferrer">Most Customers Don't Care About Your AI Chatbot - CMSWire</a>
+                    </h3>
+                    <p class="ai-sum">多數顧客對企業的AI聊天機器人漠不關心，因其常無法解決實際問題，反而造成體驗斷層。此現象警示AI客服產業，技術亮點不等於客戶價值，須將重心從部署AI轉向真正理解並滿足用戶需求，否則將損害品牌信任與忠誠度。</p>
+                    <div class="pub">Wed, 08 Jul 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="af6f3effba">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · generative AI customer support</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxPUnEzS0FIVjJFVUtwU2lTWkNjc2pwMkExcmlOT2J6cEhPZ19fT29HeGRyN290TnlSNGFzSGU0R2hzVlZUdHlLbDlGTTh0eXFxaUNlM3cwcXhjWWt0cjRGcWxHaDJ4bzBMZ3pOcXBjYk1oSWpJanlHTThlLXN2M2RYRDUza0F1ZHh6OVdSZVJ2TDJ4d0k2VWZrcmN4X09ReXRVMEpHMTd1dENERkduRkE?oc=5" target="_blank" rel="noopener noreferrer">A clear path to a live agent grows trust in AI customer service - Customer Experience Dive</a>
+                    </h3>
+                    <p class="ai-sum">研究顯示，AI客服若能提供明確的「轉接真人」路徑，將顯著提升消費者信任與使用意願。此舉不僅緩解用戶對AI的焦慮，更為Voice AI與AI Agent的落地應用建立關鍵的信任基礎，對產業發展至關重要。</p>
+                    <div class="pub">Wed, 22 Jul 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="305145420a">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · generative AI customer support</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxNZVZQRWRZRTNxODVPcUhXX3lEQ2JXekhsd1hpVGhSSDhuSTNPeDVFS2dyVVJ1b3VCaUVoQnp4NjAxNjRIQkNKMlRGMVdaQ1UtTm1wa191N1BXcGRaQ3dHLUJSMV9uNmdyTFJuSmh3MTBCUjhNVzNDa2Z0NjM4Q3EzNUdCUk9penJXbDlWSndkanhkNWR0c1FIQURFVktUNXBBOFE?oc=5" target="_blank" rel="noopener noreferrer">Bank of America upgrades customer service employee tool - Banking Dive</a>
+                    </h3>
+                    <p class="ai-sum">美國銀行升級其客服員工工具，顯示金融業正加速導入AI輔助技術以提升服務效率。此舉凸顯Voice AI與AI Agent在客服領域的實際應用價值，將驅動產業從傳統人力轉向人機協作模式，並成為AI客服解決方案的重要落地指標。</p>
+                    <div class="pub">Tue, 21 Jul 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="e738e29d1d">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · generative AI customer support</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMibkFVX3lxTFB5RzE2MzZ3MEEtajNMTUpJWm9KRnp4UmN3MEFHMzh5MWVIcWJPdU41c3UxRzBpaC1LSWI0Sy1jd2JUTHVpckM2WWkxd0VhLUNOaTZpUFJiUk52U2FkLUNsTTQ4RmdQRGk0Sk5ZaTVn?oc=5" target="_blank" rel="noopener noreferrer">A Guide to AI Customer Service Chatbots - IBM</a>
+                    </h3>
+                    <p class="ai-sum">此文章全面解析AI客服聊天機器人的應用架構與技術基礎，強調其如何透過自然語言處理與機器學習提升客戶互動效率。對產業而言，它凸顯了Voice AI與AI Agent在降低營運成本、實現24/7自動化服務中的關鍵角色，並指引企業如何整合這些工具以優化用戶體驗與競爭力。此指南為AI客服領域的部署策略提供了重要參考基準。</p>
+                    <div class="pub">Fri, 07 Nov 2025 08:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="6364f61e58">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · generative AI customer support</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTFBLemtydDNhZ01XZ2Zra21OazJkQWExMWhkYW8zNDBMOE5ITlk3NHRkdU54S0xXZzZNY3kyV1AyMW16dzBYYk9RcTZUdDRxVWxveUtDSFpJamo2LThVWUFnMkNCYmFjaUNfT3dWRk1TbDVCb0hoNWc?oc=5" target="_blank" rel="noopener noreferrer">Customer service trends & statistics for 2026: Why consumers still trust humans over AI - Survey Monkey</a>
+                    </h3>
+                    <p class="ai-sum">2026年客服趨勢顯示，消費者仍普遍信任真人客服勝於AI，這對Voice AI與AI Agent產業構成關鍵挑戰。企業需在效率與人性化之間取得平衡，否則過度自動化可能損害客戶忠誠度。此研究強調AI客服應定位為輔助工具，而非完全取代人類互動。</p>
+                    <div class="pub">Thu, 19 Feb 2026 08:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="3f81d40c2c">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · generative AI customer support</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxORWdIRWE3b1hEcnU4bW1XZHdlMmI1NV9OX0o1dmdvOGdsaHE4cV9RZU5zd0pSbENhUjJaSkFhOFZTUWRuNk1tMHVUOGVSSkMwc3N2REt3SWFYY2x6NE5HTXlDQmx6R2xMcGdBTDliM1R2QVhnQXJRRHdGT2hDR3BRVW9YczMzRC01dVhTb3l1OElNR2hEUlE?oc=5" target="_blank" rel="noopener noreferrer">Omilia raises $67M to scale its customer support platform - TechCrunch</a>
+                    </h3>
+                    <p class="ai-sum">Omilia成功募資6700萬美元，彰顯AI客服平台市場的強勁需求與投資熱度。此資金將加速其對話式AI技術發展，有望重塑企業客戶服務流程，並提升AI Agent在複雜互動中的自主處理能力。此舉將進一步推動Voice AI在客服產業的規模化應用與競爭格局。</p>
+                    <div class="pub">Thu, 06 Aug 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+        <div class="card" data-id="396bc4af98">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="meta">Google News · generative AI customer support</div>
+                    <h3>
+                        <a href="https://news.google.com/rss/articles/CBMihwJBVV95cUxPd1pUNVZmYUUzbWtxdkY0T2FkX1dnVWFadnNNR1dsRThxcGNRRG1LRmFmZGhUTl9yWGZNRk54TVFTa0hhbWNGNEJ6WFBIVEtwTmJITGcwTlJLNmtmbXhTemNUUkpobmV2X05JX1ZndnBUVGVLdFlqb2U4ZlhOM0NLNHB2eUwzb281MWY5R2hvcEJuOTk1N3d1TnYteXNoVUt0VXRPdVdOZGozT1NURy1zTFZRUkJwM3J1RWZranJKYXFQUHhBZVZCS3lzblFYX0VnSzRMU0g1ODVkS19NU2JscXFPVVkzX1NyWGFxVGNQZHV3UzFjR2lXNnBveW81Z2doa0pfNkUtMA?oc=5" target="_blank" rel="noopener noreferrer">The Home Depot Delivers Customer Support Four Times Faster Using Google Cloud's Gemini Enterprise for Customer Experience - PR Newswire</a>
+                    </h3>
+                    <p class="ai-sum">家得寶運用Google Cloud的Gemini企業版，將客戶支援速度提升四倍，展現生成式AI在客服領域的實際成效。此案例證明AI Agent能顯著優化服務效率與成本，為零售業樹立標竿，加速Voice AI與AI客服產業的商業應用落地。</p>
+                    <div class="pub">Wed, 22 Apr 2026 07:00:00 GMT</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-star" title="加入最愛"
+                            onclick="toggleFav(this)">☆</button>
+                    <button class="btn-note-toggle" title="開啟筆記"
+                            onclick="toggleNote(this)">📝<span class="note-badge" style="display:none">✎</span></button>
+                </div>
+            </div>
+            <div class="note-area">
+                <div class="note-label">✏️ 我的筆記</div>
+                <textarea class="note-text"
+                          placeholder="輸入你的想法、摘要或備註..."
+                          oninput="onNoteChange(this)"></textarea>
+            </div>
+        </div>
+    </div>
+    
+<script>
+const DB_URL   = "https://ai-digest-ef680-default-rtdb.asia-southeast1.firebasedatabase.app";
+const USER_KEY = "88dd5d05-e33d-46e0-b998-97b3ef3352cd";
+const DATA_URL = DB_URL
+    ? `${DB_URL}/users/${USER_KEY}.json`
+    : null;
+
+let state = { favorites: {}, notes: {} };
+let saveTimer = null;
+
+/* ── Firebase / localStorage I/O ── */
+async function loadData() {
+    setStatus('loading');
+    if (DATA_URL) {
+        try {
+            const res = await fetch(DATA_URL);
+            if (res.ok) {
+                const data = await res.json();
+                if (data) state = { favorites: {}, notes: {}, ...data };
+            }
+            setStatus('synced');
+        } catch(e) {
+            loadLocal();
+            setStatus('offline');
+        }
+    } else {
+        loadLocal();
+        setStatus('local');
+    }
+    applyToUI();
+}
+
+function loadLocal() {
+    try {
+        const raw = localStorage.getItem('digest_data');
+        if (raw) state = JSON.parse(raw);
+    } catch(e) {}
+}
+
+async function saveToCloud() {
+    setStatus('saving');
+    localStorage.setItem('digest_data', JSON.stringify(state));
+    if (!DATA_URL) { setStatus('local'); return; }
+    try {
+        await fetch(DATA_URL, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(state)
+        });
+        setStatus('synced');
+    } catch(e) {
+        setStatus('offline');
+    }
+}
+
+function scheduleSync() {
+    clearTimeout(saveTimer);
+    setStatus('pending');
+    saveTimer = setTimeout(saveToCloud, 1200);
+}
+
+/* ── UI apply ── */
+function applyToUI() {
+    document.querySelectorAll('.card').forEach(card => {
+        const id = card.dataset.id;
+        const starBtn  = card.querySelector('.btn-star');
+        const noteArea = card.querySelector('.note-area');
+        const noteText = card.querySelector('.note-text');
+        const noteBadge = card.querySelector('.note-badge');
+
+        if (state.favorites[id]) {
+            card.classList.add('is-fav');
+            starBtn.textContent = '⭐';
+            starBtn.title = '取消最愛';
+        } else {
+            card.classList.remove('is-fav');
+            starBtn.textContent = '☆';
+            starBtn.title = '加入最愛';
+        }
+
+        const note = state.notes[id] || '';
+        noteText.value = note;
+        noteBadge.style.display = note ? 'inline' : 'none';
+    });
+    updateFavCount();
+    applyFilter();
+}
+
+/* ── Favorites ── */
+function toggleFav(btn) {
+    const card = btn.closest('.card');
+    const id   = card.dataset.id;
+    if (state.favorites[id]) {
+        delete state.favorites[id];
+        card.classList.remove('is-fav');
+        btn.textContent = '☆';
+        btn.title = '加入最愛';
+    } else {
+        state.favorites[id] = true;
+        card.classList.add('is-fav');
+        btn.textContent = '⭐';
+        btn.title = '取消最愛';
+    }
+    updateFavCount();
+    applyFilter();
+    scheduleSync();
+}
+
+function updateFavCount() {
+    const n = Object.keys(state.favorites).length;
+    const el = document.getElementById('fav-count');
+    if (el) el.textContent = n > 0 ? ` (${n})` : '';
+}
+
+/* ── Notes ── */
+function toggleNote(btn) {
+    const card     = btn.closest('.card');
+    const noteArea = card.querySelector('.note-area');
+    const isOpen   = noteArea.style.display !== 'none';
+    noteArea.style.display = isOpen ? 'none' : 'block';
+    if (!isOpen) card.querySelector('.note-text').focus();
+}
+
+function onNoteChange(textarea) {
+    const card  = textarea.closest('.card');
+    const id    = card.dataset.id;
+    const val   = textarea.value;
+    const badge = card.querySelector('.note-badge');
+    if (val.trim()) {
+        state.notes[id] = val;
+        badge.style.display = 'inline';
+    } else {
+        delete state.notes[id];
+        badge.style.display = 'none';
+    }
+    scheduleSync();
+}
+
+/* ── Filter ── */
+let currentFilter = 'all';
+function setFilter(f) {
+    currentFilter = f;
+    document.querySelectorAll('.filter-btn').forEach(b =>
+        b.classList.toggle('active', b.dataset.filter === f)
+    );
+    applyFilter();
+}
+
+function applyFilter() {
+    document.querySelectorAll('.card').forEach(card => {
+        if (currentFilter === 'fav') {
+            card.style.display = state.favorites[card.dataset.id] ? '' : 'none';
+        } else {
+            card.style.display = '';
+        }
+    });
+}
+
+/* ── Sync status badge ── */
+function setStatus(s) {
+    const el = document.getElementById('sync-status');
+    if (!el) return;
+    const MAP = {
+        loading: ['⟳ 載入中',   '#a78bfa'],
+        saving:  ['⟳ 儲存中',   '#f59e0b'],
+        synced:  ['✓ 已雲端同步', '#10b981'],
+        offline: ['✗ 離線模式',  '#ef4444'],
+        pending: ['● 待儲存',   '#6366f1'],
+        local:   ['◎ 本機儲存',  '#94a3b8'],
+    };
+    const [text, color] = MAP[s] || ['', '#aaa'];
+    el.textContent = text;
+    el.style.color  = color;
+}
+
+window.addEventListener('load', loadData);
+</script>
+
+</body>
+</html>
